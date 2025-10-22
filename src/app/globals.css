@@ -1,0 +1,137 @@
+@import url('https://db.onlinewebfonts.com/c/513071b47bdba774c93a73ad16a75e3b?family=DIN+Next+LT+Arabic+Bold');
+@import "tailwindcss";
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+ 
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+   
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* font-family:  Arial, Helvetica, sans-serif; */
+   font-family: "DIN Next LT Arabic", sans-serif;
+    --xl:1200;
+
+ 
+ 
+}
+
+.theme-bgcolor{
+  background-color: #fdbd3f
+}
+  .theme-color {
+    color: #fdbd3f
+}
+
+  .font-bold {
+  font-family: "DIN Next LT Arabic Bold", sans-serif;
+  
+}
+
+
+
+.login li{
+  font-family: 'DINNextLTArabic-Medium';
+}
+
+
+
+  .serviceboxes{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+   
+    gap: 5px;
+   
+  }
+  .serviceboxes .card{
+    width: 280px;
+    border-radius: 0;
+  }
+    .serviceboxes .card > img{
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .counter-box{
+    background-color: #ececec;
+    margin-top: 70px;
+    display: block;
+  }
+
+  .counter-container{
+    display: flex
+;
+    justify-content: space-around;
+    align-items: center
+  }
+
+  .counter {
+       text-align: center;
+  }
+  .certificates{
+    display: flex;
+    justify-content: space-between;
+    color: #53585b;
+    flex-wrap: wrap;
+     font-family: 'DINNextLTArabic-Regular';
+    
+  }
+  .certificates img {
+  width: 200px;
+  border: 3px solid #fdbd3f;
+  border-radius: 8px;
+   font-family: 'DINNextLTArabic-Regular';
+}
+
+.certificates .text-cen {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  align-items: center;
+   font-family: 'DINNextLTArabic-Regular';
+}
+
+.certificates .cir-title {
+  font-weight: bold;
+}
+
+
+.base-footer ul{
+    list-style-type: none;
+   
+}
+.base-footer ul li{
+    margin-bottom: 5px;
+    padding: 10px 0px;
+}
+.base-footer li a {
+    text-decoration: none;
+    color: #221e1f;
+    font-weight: 500;
+}
+
+.base-footer .address{
+  /* font-weight: 500; */
+  color: #221e1f;
+}
+
