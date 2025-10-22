@@ -1,16 +1,21 @@
 "use client";
-
+import Achievements from "../Acievement/Achievements";
 import React from "react";
 import Sidenav from "./SideNav";
 import Link from "next/link";
 import { useLocale,  } from "next-intl";
 import { usePathname } from "next/navigation";
 
+
+
 export default function MenuHeader() {
   const locale = useLocale() as "ar" | "en";
 
+
   const pathname = usePathname() ?? "/";
   const otherLocale = locale === "ar" ? "en" : "ar";
+
+
 
   // compute swap path robustly
   let newPath = pathname;
@@ -58,7 +63,7 @@ export default function MenuHeader() {
         <ul className="flex gap-4 h-full items-center justify-center w-full text-sm font-bold pt-2">
           <li className="hover:text-[#fdbd3f] flex gap-3">
             {/* internal route - use Link and locale */}
-            <Link href="/about" locale={locale}>{texts.about}</Link>
+            <Link href={`/${locale}/about`} locale={locale}>{texts.about}</Link>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
@@ -67,18 +72,18 @@ export default function MenuHeader() {
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
-          <li className="hover:text-[#fdbd3f] flex gap-3">
-            <a href="#achievement">{texts.achievement}</a>
+        <li className="hover:text-[#fdbd3f] flex gap-3">
+            <a href={`/${locale}#Achievements`} >{texts.achievement}</a>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
           <li className="hover:text-[#fdbd3f] flex gap-3">
-            <a href="#contact">{texts.contact}</a>
+            <a href={`/${locale}#ContactUs`}>{texts.contact}</a>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
           <li className="hover:text-[#fdbd3f] flex gap-3">
-            <Link href="/investor" locale={locale}>{texts.investor}</Link>
+            <Link href={`/${locale}/investor-relation`} locale={locale}>{texts.investor}</Link>
           </li>
         </ul>
       </div>

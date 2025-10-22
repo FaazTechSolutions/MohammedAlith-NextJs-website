@@ -1,4 +1,19 @@
+
 import React from "react";
+import Slider from './serviceslider'
+
+
+
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  // autoplay: true,
+  // autoplaySpeed: 3000,
+  arrows: true,
+};
 
 // 🔹 Shared types
 export interface Action {
@@ -35,21 +50,18 @@ export interface ServicePageItem {
   stepsDescription: string;
 }
 
-// 🔹 Props definition – either About or Services
+
 export interface CombinedProps {
   aboutItems?: AboutItem[];
   serviceItems?: ServicePageItem[];
 }
 
-// 🔹 Combined component
-export default function ServicesSection({
-  aboutItems,
-  serviceItems,
-}: CombinedProps) {
-  // Decide which data to render
+
+export default function ServicesSection({ aboutItems, serviceItems,}: CombinedProps) {
+
   const dataList = aboutItems ?? serviceItems ?? [];
 
-  // If About section, sort by Order (only About has Order)
+
   const sortedList =
     "Order" in (dataList[0] || {})
       ? [...dataList].sort((a: any, b: any) => a.Order - b.Order)
@@ -58,7 +70,7 @@ export default function ServicesSection({
   return (
     <>
       {sortedList.map((x: any, index: number) => {
-        // 🔸 Handle action parsing
+        
         let parsedAction: Record<string, string> | null = null;
         if (x.action) {
           try {
@@ -71,29 +83,37 @@ export default function ServicesSection({
         const actionText = parsedAction ? Object.keys(parsedAction)[0] : null;
         const actionValue = parsedAction ? Object.values(parsedAction)[0] : null;
 
-        // 🔹 Parse slides outside JSX
+        
         let slideImages: string[] = [];
         if (x.slides) {
           try {
-           let slides = x.slides.replace(/\\/g, "\\\\").trim();
+           let slides = x.slides.replace(/\r?\n/g, "").trim();
             const parsedSlides = JSON.parse(slides);
-            slideImages = Object.values(parsedSlides);
+            slideImages = Object.values(parsedSlides).map((url :any) => url.replace(/\\\\/g, "/"));;
             console.log("slideImages for", x.Header || index, slideImages);
           } catch (err) {
             console.warn("Invalid slides JSON:", x.slides, err);
           }
         }
 
-        // 🔹 Conditional Background for About items only
-        const bgClass = x.IsBackground === "True" ? "bg-gray-300/30" : "";
+          let parsedSteps: Record<string, string | null> = {};
+  if (x.steps) {
+    try {
+      parsedSteps = JSON.parse(x.steps);
+    } catch (err) {
+      console.warn("Invalid steps JSON:", x.steps);
+    }
+  }
+
+       
 
         return (
-          <div key={x.RecId || index} className={`py-20 px-18 ${bgClass}`}>
-            <div className=" px-18 w-screen">
-              <div className="flex flex-col md:flex-row  py-12 space-y-8 md:space-y-0 md:space-x-8">
-                {/* LEFT IMAGE (only if present) */}
+          <div key={x.RecId || index} className={`py-20 px-18 container mx-auto`}>
+            <div className="py-4   ">
+              <div className="flex flex-col md:flex-row gap-5">
+              
                 {x.imgposition === "Left" && x.Image && (
-                  <div className="w-full md:w-1/2 text-center">
+                  <div className=" ">
                     <img
                       src={x.Image}
                       alt={x.Header || "Image"}
@@ -102,16 +122,26 @@ export default function ServicesSection({
                   </div>
                 )}
 
-                {/* TEXT CONTENT */}
-                <div className="w-full md:w-1/2">
+               
+                <div className="w-3/6">
                   {x.Header && (
-                    <h3 className="text-2xl font-semibold mb-2">{x.Header}</h3>
+                    <h3 className="text-4xl font-Header  font-bold mb-2">{x.Header}</h3>
                   )}
-                  {x.SubHeader && (
-                    <h4 className="text-lg font-medium mb-2 text-gray-700">
-                      {x.SubHeader}
-                    </h4>
-                  )}
+                  { x.Header && (
+  <h3
+    className="text-3xl  font-bold mb-2"
+    style={{
+      color:
+        x.Header === "HEMAH"|| x.Header === "HEMAHTECH"
+          ? "#dc1e35"
+          : x.Header === "SAWAID"
+          ? "#6ec498"
+          : "#fdbd3f",
+    }}
+  >
+    {x.SubHeader}
+  </h3>
+)}
                   {x.Description && (
                     <p className="text-gray-600 mb-3">{x.Description}</p>
                   )}
@@ -121,58 +151,73 @@ export default function ServicesSection({
                     <span className="text-yellow-500">{x.position}</span>
                   )}
 
-                  {/* Steps (if service) */}
-                  {x.stepsHeader && (
-                    <div className="mt-4">
-                      <h5 className="font-semibold text-yellow-600">
-                        {x.stepsHeader}
-                      </h5>
-                      <p className="text-gray-700">{x.stepsDescription}</p>
-                    </div>
-                  )}
+                
+                  {(x.stepsHeader || Object.keys(parsedSteps).length > 0) && (
+  <div className="mt-12 ps-12">
+    {x.stepsHeader && (
+      <h5 className="font-bold text-2xl">{x.stepsHeader}</h5>
+    )}
+    {x.stepsDescription && (
+      <p className="text-gray-700">{x.stepsDescription}</p>
+    )}
 
-                  {/* Action button */}
-                  <div className="flex justify-end">
-                    {actionText && actionValue && (
-                      <a
-                        href={actionValue}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mt-4 px-2 py-2 border-2 border-yellow-500 bg-yellow-500 text-white hover:bg-transparent hover:text-yellow-500 transition"
-                      >
-                        {actionText}
-                      </a>
-                    )}
-                  </div>
+    
+   {Object.entries(parsedSteps).length > 0 && (
+  <ul className="list-disc ml-8 mt-2">
+    {Object.entries(parsedSteps).map(([label, value], i) => (
+      <li key={i}>
+        <strong>{label}:</strong> {value ?? ""}
+      </li>
+    ))}
+  </ul>
+)}
+
+  </div>
+)}
+
+                 
+
+                <div className="flex justify-end">
+  {x.Header && actionText && actionValue && (
+    <a
+      href={actionValue}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-block mt-4 px-2 py-2 border-2 text-white transition-all duration-300
+        ${
+          x.Header === "HEMAH" || x.Header === "HEMAHTECH"
+            ? "bg-[#dc1e35] border-[#dc1e35] hover:bg-transparent hover:text-[#dc1e35]"
+            : x.Header === "SAWAID"
+            ? "bg-[#6ec498] border-[#6ec498] hover:bg-transparent hover:text-[#6ec498]"
+            : "bg-[#fdbd3f] border-[#fdbd3f] hover:bg-transparent hover:text-[#fdbd3f]"
+        }`}
+    >
+      {actionText}
+    </a>
+  )}
+</div>
+
+
                 </div>
 
-                {/* RIGHT IMAGE OR SLIDER */}
-                {(x.imgposition === "Right" || x.imgposition === "Left"||x.imgposition==="null") && (
-                  <div className="w-full md:w-1/2 text-center">
-                    {slideImages.length > 0 ? (
-                      <div className="w-full overflow-hidden relative">
-                        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory">
-                          {slideImages.map((src, idx) => (
-                            <img
-                              key={idx}
-                              src={src}
-                              alt={x.Header || `Slide ${idx + 1}`}
-                              className="mx-auto max-h-80 object-contain snap-center rounded-lg"
-                            />
-                          ))}
-                        </div>
+               
+    {(!x.imgposition || x.imgposition === "Right" || x.imgposition === "null") && (
+                  <>
+                    {serviceItems && slideImages.length > 0 ? (
+                      <div className="w-full md:w-1/2 text-center">
+                        <Slider slideImages={slideImages} header={x.Header} />
                       </div>
                     ) : (
                       x.Image && (
-                        <img
-                          src={x.Image}
-                          alt={x.Header || "Image"}
-                          className="mx-auto max-h-80 object-contain"
-                        />
+                        <div className="w-full md:w-1/2 text-center">
+                          <img src={x.Image} alt={x.Header || "Image"} className="h-full object-contain rounded-lg" />
+                        </div>
                       )
                     )}
-                  </div>
+                  </>
                 )}
+
+
               </div>
             </div>
           </div>

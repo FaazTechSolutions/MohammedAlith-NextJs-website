@@ -7,13 +7,13 @@ const intlMiddleware = createMiddleware(routing);
 export default function middleware(req:any) {
   const url = req.nextUrl.clone();
 
-  // Redirect root `/` to `/ar`
-  if (url.pathname === '/') {
- 
-    return intlMiddleware(req);
+
+   if (url.pathname === '/') {
+    url.pathname = '/ar';
+    return NextResponse.redirect(url);
   }
 
-
+return intlMiddleware(req);
 }
 
 export const config = {

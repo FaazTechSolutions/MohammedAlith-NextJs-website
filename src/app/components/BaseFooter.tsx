@@ -25,7 +25,7 @@ export default function BaseFooter() {
       ];
 
   return (
-    <div dir={isArabic ? "rtl" : "ltr"}
+    <div dir={isArabic ? "rtl" : "ltr"} id="ContactUs"
     className=" px-18 py-20 base-footer container m-auto" >
       <div className="w-screen">
         <ul

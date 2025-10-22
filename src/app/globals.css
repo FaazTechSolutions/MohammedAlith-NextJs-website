@@ -2,6 +2,9 @@
 @import "tailwindcss";
 
 
+
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -47,6 +50,10 @@ body {
   
 }
 
+ .font-Header {
+  font-family: "DINNextLTArabic-Black', 'DINNextLTArabic-Bold";
+  
+}
 
 
 .login li{
@@ -135,3 +142,40 @@ body {
   color: #221e1f;
 }
 
+ 
+
+  .ba-img{
+ position: relative;
+ 
+background-image: url("https://mawarid.com.sa/assets/images/MawridWebsite2023-20.png");
+background-size: 100% 100%;
+
+}
+
+.insideSlide{
+  position: absolute;
+    top: 100px;
+    left:7px;
+    width: calc(100% - 40px);
+}
+
+
+/* Default LTR */
+.ltr .slick-dots {
+  position: absolute !important;
+  bottom: 310px !important;
+  left: 200px !important;
+}
+
+.rtl .slick-dots {
+  position: absolute !important;
+  bottom: 310px !important;
+  right: 200px !important; /* flip side for RTL */
+}
+
+/* Dot style (common for both) */
+.slick-dots li button:before {
+  font-size: 15px !important;
+  color: #000 !important;
+  opacity: 0.5;
+}

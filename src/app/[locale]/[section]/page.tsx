@@ -2,10 +2,10 @@
 import Services from "@/app/Pages/ServicesPage";
 export const dynamic = "force-static";
 
-// Generate all combinations of locales and sections
+
 export function generateStaticParams() {
   const locales = ["ar", "en"];
-  const sections = ["about", "services" /*, "contact", "signIn", etc. */];
+  const sections = ["about", "services","investor-relation" ];
 
   const params: { locale: string; section: string }[] = [];
   locales.forEach((locale) => {
@@ -34,6 +34,10 @@ export default async function SectionPage({
 
     case "services":
       Component = <Services locale={locale as "ar" | "en"} />;
+      break;
+
+       case "investor-relation":
+      // Component = <Services locale={locale as "ar" | "en"} />;
       break;
 
     // Add other sections:

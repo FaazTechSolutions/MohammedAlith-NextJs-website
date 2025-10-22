@@ -26,7 +26,7 @@ export default async function Services({servicesbox}:ServiceProps){
      
     return(
          <div className='serviceboxes  '>
-      {servicesbox.map((service:any, index:number) => (
+      {sortedBanners.map((service:any, index:number) => (
         <div className="card" key={index}>
           <a href={service.PageUrl} target='_blank'>
         <img
