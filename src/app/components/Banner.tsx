@@ -27,7 +27,7 @@ export default function Banner({ banners, locale }: BannerProps) {
   const sortedBanners = [...banners].sort((a, b) => a.Order - b.Order);
 
   return (
-    <div className="w-screen" dir={isRtl ? "rtl" : "ltr"}>
+    <div className="w-screen " dir={isRtl ? "rtl" : "ltr"}>
       {sortedBanners.map((banner) => (
         <div
           key={banner.RecId}
@@ -44,11 +44,12 @@ export default function Banner({ banners, locale }: BannerProps) {
           )}
 
           {/* Text Overlay */}
+          <div className="container mx-auto">
           <div
-            className={` container mx-auto absolute top-8 xl:top-10 font-bold ${
+            className={`px-18  absolute top-10 font-bold ${
               isRtl
-                ? "right-4 md:right-10 xl:right-20 text-right"
-                : "left-4 md:left-10 xl:left-20 text-left"
+                ? " text-right"
+                : " text-left"
             } flex flex-col gap-4 lg:gap-6`}
           >
             {banner.BannerText && (
@@ -61,6 +62,7 @@ export default function Banner({ banners, locale }: BannerProps) {
                 {banner.BannerSubText}
               </h2>
             )}
+          </div>
           </div>
         </div>
       ))}

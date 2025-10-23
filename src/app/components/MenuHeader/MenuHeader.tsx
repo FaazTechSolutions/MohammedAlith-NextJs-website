@@ -39,7 +39,8 @@ export default function MenuHeader() {
   };
 
   return (
-    <div className="flex sm:flex-shrink-1 px-4 xl:px-18 justify-between items-center py-6 sticky top-0 bg-white z-1000 w-screen">
+    <div className="w-screen bg-white sticky top-0 z-1000">
+    <div className="flex sm:flex-shrink-1 px-4 xl:px-18 justify-between items-center py-6  bg-white  w-screen container mx-auto">
       {/* Mobile menu */}
       <div className="pt-3 xl:hidden relative">
         <Sidenav />
@@ -59,11 +60,12 @@ export default function MenuHeader() {
       </div>
 
       {/* Desktop Menu */}
-      <div className="hidden xl:block">
-        <ul className="flex gap-4 h-full items-center justify-center w-full text-sm font-bold pt-2">
+      <div className="hidden xl:block ">
+      
+        <ul className="flex gap-4 h-full items-center justify-center w-full text-sm font-bold pt-2 ">
           <li className="hover:text-[#fdbd3f] flex gap-3">
             {/* internal route - use Link and locale */}
-            <Link href={`/${locale}/about`} locale={locale}>{texts.about}</Link>
+            <Link href={`/${locale}/about-mawarid`} locale={locale}>{texts.about}</Link>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
@@ -86,6 +88,7 @@ export default function MenuHeader() {
             <Link href={`/${locale}/investor-relation`} locale={locale}>{texts.investor}</Link>
           </li>
         </ul>
+        
       </div>
 
       {/* Buttons */}
@@ -104,6 +107,7 @@ export default function MenuHeader() {
           </button>
         </a>
       </div>
+    </div>
     </div>
   );
 }

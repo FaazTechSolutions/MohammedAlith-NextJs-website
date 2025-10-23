@@ -1,5 +1,6 @@
 // import other sections as needed
 import Services from "@/app/Pages/ServicesPage";
+import AboutPage from "@/app/Pages/AboutPage";
 export const dynamic = "force-static";
 
 
@@ -20,16 +21,16 @@ export function generateStaticParams() {
 export default async function SectionPage({
   params,
 }: {
-  params: { locale: string; section: string };
+  params: Promise<{ locale: string , section:string}>;
 }) {
-  const { locale, section } = params;
+  const { locale, section } = await params;
   const isRtl = locale === "ar";
 
   let Component: React.ReactNode;
 
   switch (section) {
-    case "about":
-      // Component = locale === "ar" ? <AboutAr /> : <AboutEn />;
+    case "about-mawarid":
+       Component = <AboutPage locale={locale as "ar" | "en"} />;
       break;
 
     case "services":

@@ -1,8 +1,6 @@
 // app/[locale]/page.tsx
 import React from 'react';
-import Banner from '../components/Banner';
-
-import Services from '../components/Services';
+;
 import Home from '../Pages/Home';
 
 export const dynamic = 'force-static';

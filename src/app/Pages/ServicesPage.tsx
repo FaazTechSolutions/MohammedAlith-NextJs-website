@@ -15,7 +15,7 @@ export default async function Services({ locale }: { locale: 'ar' | 'en' }) {
     (item: any) => item.WorkItemType === 'Service' && item.ParentId === 54
   );
 
-  console.log("service1", service1);
+  // console.log("service1", service1);
 
   return (
     <div>

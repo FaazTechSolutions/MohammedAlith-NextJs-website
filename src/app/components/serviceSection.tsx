@@ -15,7 +15,7 @@ const sliderSettings = {
   arrows: true,
 };
 
-// 🔹 Shared types
+
 export interface Action {
   Text: string;
   Value: string;
@@ -90,7 +90,7 @@ export default function ServicesSection({ aboutItems, serviceItems,}: CombinedPr
            let slides = x.slides.replace(/\r?\n/g, "").trim();
             const parsedSlides = JSON.parse(slides);
             slideImages = Object.values(parsedSlides).map((url :any) => url.replace(/\\\\/g, "/"));;
-            console.log("slideImages for", x.Header || index, slideImages);
+            // console.log("slideImages for", x.Header || index, slideImages);
           } catch (err) {
             console.warn("Invalid slides JSON:", x.slides, err);
           }
@@ -110,7 +110,7 @@ export default function ServicesSection({ aboutItems, serviceItems,}: CombinedPr
         return (
           <div key={x.RecId || index} className={`py-20 px-18 container mx-auto`}>
             <div className="py-4   ">
-              <div className="flex flex-col md:flex-row gap-5">
+              <div className="flex flex-col md:flex-row gap-16">
               
                 {x.imgposition === "Left" && x.Image && (
                   <div className=" ">

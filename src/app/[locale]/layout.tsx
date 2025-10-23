@@ -27,7 +27,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <Header />
         <MenuHeader/>
         <main>{children}</main>
-        <BaseFooter />
+        <BaseFooter/>
         <FooterBottom />
       </div>
     </NextIntlClientProvider>

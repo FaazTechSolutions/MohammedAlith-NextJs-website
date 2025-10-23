@@ -25,6 +25,7 @@ export default async function Services({servicesbox}:ServiceProps){
       
      
     return(
+      <div className="">
          <div className='serviceboxes  '>
       {sortedBanners.map((service:any, index:number) => (
         <div className="card" key={index}>
@@ -38,6 +39,7 @@ export default async function Services({servicesbox}:ServiceProps){
         </a>
         </div>
       ))}
+    </div>
     </div>
     )
 }

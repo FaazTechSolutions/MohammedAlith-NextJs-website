@@ -32,9 +32,10 @@ export async function getMessages(locale: 'ar' | 'en') {
     }
 
     const data = await res.json();
-    console.log('API response:', data);
+    // console.log('API response:', data);
     return data || {};
   } catch (error) {
+    
     console.error(`Error fetching messages for locale ${locale}:`, error);
     return {};
   }
