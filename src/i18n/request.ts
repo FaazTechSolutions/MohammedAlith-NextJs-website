@@ -1,12 +1,13 @@
-import { getRequestConfig, type GetRequestConfigParams } from 'next-intl/server';
+// src/i18n/request.ts
+import { getRequestConfig } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { getMessages } from '../app/lib/api';
 
 const locales = ['en', 'ar'];
+const defaultLocale = 'ar'; // Default locale for static export
 
-export default getRequestConfig(async ({ requestLocale }: GetRequestConfigParams) => {
-  const resolvedLocale = (await requestLocale) ?? 'ar';
-  const locale:any = locales.includes(resolvedLocale) ? resolvedLocale : 'ar';
+export default getRequestConfig(async () => {
+  const locale: any = defaultLocale;
 
   const apiResponse = await getMessages(locale);
   if (!apiResponse || Object.keys(apiResponse).length === 0) notFound();

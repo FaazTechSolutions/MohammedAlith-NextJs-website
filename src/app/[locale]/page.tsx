@@ -1,11 +1,14 @@
 // app/[locale]/page.tsx
 import React from 'react';
-;
+import { notFound } from 'next/navigation';
 import Home from '../Pages/Home';
 
 export const dynamic = 'force-static';
+export const dynamicParams = false;
 
-// Generate static params for SSG
+// Valid locales list
+const VALID_LOCALES = ['ar', 'en'];
+
 export async function generateStaticParams() {
   return [
     { locale: 'ar' },
@@ -14,18 +17,18 @@ export async function generateStaticParams() {
 }
 
 export default async function LocalePage(props: any) {
-  // Await params before using them
   const { params } = await props;
+  const locale = params?.locale;
   
-  // Treat `/` as Arabic if params.locale is undefined
-  const locale = (params?.locale ?? 'ar') as 'ar' | 'en';
+  // CRITICAL: Validate locale - trigger 404 if invalid
+  if (!locale || !VALID_LOCALES.includes(locale)) {
+    notFound();
+  }
+  
   const isRtl = locale === 'ar';
 
   return (
     <main lang={locale} dir={isRtl ? 'rtl' : 'ltr'} className="bg-white text-gray-900">
-      {/* Pass resolved locale to Banner */}
-      {/* <Banner locale={locale} />
-      <Services locale={locale}/> */}
       <Home locale={locale}/>
     </main>
   );

@@ -1,6 +1,7 @@
 // import other sections as needed
 import Services from "@/app/Pages/ServicesPage";
 import AboutPage from "@/app/Pages/AboutPage";
+
 export const dynamic = "force-static";
 
 

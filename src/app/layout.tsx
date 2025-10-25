@@ -4,6 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 
+import requestConfig from "../i18n/request";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,15 +26,21 @@ icons: {
      }
 };
 
-export default function RootLayout({ children, params }:any) {
-  const locale = params?.locale ?? 'ar';
-  const dir = locale === 'ar' ? 'rtl' : 'ltr';
+export default async function RootLayout({ children, params }:any) {
+ const { locale } = await params;
+   const resolvedLocale = locale ?? "ar";
+   const isRtl = ["ar"].includes(resolvedLocale);
+ 
+   const messages = await requestConfig({
+     requestLocale: Promise.resolve(resolvedLocale),
+   });
 
   return (
-    <html lang={locale} dir={dir}>
+    <html lang={locale} >
       <body>
-        <NextIntlClientProvider locale={locale}>
-          {children}
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <div dir={isRtl ? "rtl" : "ltr"}></div>
+       <main>{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>

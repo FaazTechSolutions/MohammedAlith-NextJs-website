@@ -1,6 +1,5 @@
 // import 'server-only';
 
-
 const En_API_URL = process.env.API_URL;
 const Ar_API_URL = process.env.API_URL2;
   // const API_URL = locale === "ar" ? Ar_API_URL : En_API_URL;
