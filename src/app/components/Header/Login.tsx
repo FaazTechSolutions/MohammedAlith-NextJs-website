@@ -7,27 +7,24 @@ import Link from "next/link";
 
 export default function Login() {
   const [open, setOpen] = useState(false);
-  const locale = useLocale() as "ar" | "en"; 
+  const locale = useLocale() as "ar" | "en";
 
- 
   const texts = {
-    login: locale === "ar" ? " تسجيل الدخول" : "login",
+    login: locale === "ar" ? "تسجيل الدخول" : "Login",
     employee: locale === "ar" ? "الموظفين" : "Employee",
     individual: locale === "ar" ? "عملاء الأفراد" : "Individual Customer",
   };
 
   return (
     <div className="relative">
-     
       <button
         onClick={() => setOpen(!open)}
-        className={`flex gap-2 text-white transition z-0 items-center `}
+        className="flex gap-2 text-white transition z-0 items-center"
       >
         {texts.login}
         <FaCaretDown />
       </button>
 
-      {/* Dropdown */}
       {open && (
         <div
           className={`absolute top-full mt-1 w-48 rounded-md shadow-lg z-20 bg-white ${
@@ -35,7 +32,7 @@ export default function Login() {
           }`}
         >
           <ul
-            className={`font-bold font-login li ${
+            className={` ${
               locale === "ar" ? "text-right" : "text-left"
             }`}
           >

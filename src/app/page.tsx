@@ -9,13 +9,15 @@ import FooterBottom from "./components/Footer";
 export default function RootPage() {
   return (
     <>
+     <main lang="ar" dir="rtl" className="bg-white text-gray-900">
       <Header />
       <MenuHeader />
-      <main lang="ar" dir="rtl" className="bg-white text-gray-900">
+     
         <Home locale="ar" />
-      </main>
+     
       <BaseFooter />
       <FooterBottom />
+      </main>
     </>
   );
 }

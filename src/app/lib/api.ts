@@ -39,3 +39,15 @@ export async function getMessages(locale: 'ar' | 'en') {
     return {};
   }
 }
+export  async function InvestorRelation({ locale }: { locale: 'ar' | 'en' }){
+  const data = await getMessages(locale);
+  const items = data?.result?.Data || [];
+
+    const investorRelation = items.filter(
+    (item: any) => item.WorkItemType === 'News' && item.ParentId === 56
+    
+  );
+
+  // console.log("investorRelation",investorRelation)
+    return investorRelation;
+}

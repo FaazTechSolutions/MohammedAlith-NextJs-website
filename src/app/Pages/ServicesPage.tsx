@@ -1,7 +1,8 @@
 import { getMessages } from "../lib/api";
 import ServicesSection from "../components/serviceSection";
-import { useLocale } from "next-intl";
+
 import { ServicePageItem } from "../components/serviceSection";
+import BaseFooter from "../components/BaseFooter";
 
 export interface ServicePageProps {
   services: ServicePageItem[];
@@ -15,12 +16,12 @@ export default async function Services({ locale }: { locale: 'ar' | 'en' }) {
     (item: any) => item.WorkItemType === 'Service' && item.ParentId === 54
   );
 
-  console.log("service1", service1);
+  // console.log("service1", service1);
 
   return (
     <div>
-      
       <ServicesSection  serviceItems={service1}  />
+      {/* <BaseFooter/> */}
     </div>
   );
 }

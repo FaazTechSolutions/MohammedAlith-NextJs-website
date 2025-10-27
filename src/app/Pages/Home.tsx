@@ -4,6 +4,7 @@ import ServicesSection from "../components/serviceSection"
 import Achievements from "../components/Acievement/Achievements";
 import { getMessages } from "../lib/api";
 import Certificates from "../components/certificates";
+import BaseFooter from "../components/BaseFooter";
 
 export default async function Home({ locale }: { locale: 'ar' | 'en' }){
     const data =await getMessages(locale);
@@ -40,7 +41,7 @@ export default async function Home({ locale }: { locale: 'ar' | 'en' }){
     //            console.log('Achieve',Achievement);
       // console.log('certificate', CertificateEn);
       //    console.log('certificatear', CertificateAr);
-      console.log("service1", servicePage1)  
+   
     return(
 
 <>

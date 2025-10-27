@@ -1,21 +1,21 @@
-"use client";
+'use client';
 import { useLocale } from "next-intl";
-import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function BaseFooter() {
   const locale = useLocale() as "en" | "ar";
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    // Avoid SSR/client mismatch
-    return null;
-  }
-
   const isArabic = locale === "ar";
+
+  const pathname = usePathname();
+
+  // --- Conditional background ---
+  // White on '/' or '/en' or '/ar', gray otherwise
+  const isWhiteBg = pathname === "/" || pathname === `/${locale}`;
+  const bgClass = isWhiteBg ? "bg-white" : "basefooter";
+
+  // --- Hide footer on investor relation page ---
+  const hideFooter = pathname?.includes("investor-relation");
+  if (hideFooter) return null;
 
   const links = isArabic
     ? [
@@ -34,13 +34,11 @@ export default function BaseFooter() {
       ];
 
   return (
-    <div dir={isArabic ? "rtl" : "ltr"} id="ContactUs"
-      className="px-18 py-20 base-footer container m-auto">
-      <ul
-        className={`w-1/6 font-Medium ${
-          isArabic ? "text-right" : "text-left"
-        }`}
-      >
+    <div id="ContactUs"
+      dir={isArabic ? "rtl" : "ltr"}
+      className={`px-18 py-8 base-footer container m-auto ${bgClass}`}
+    >
+      <ul className={`w-1/6 font-Medium ${isArabic ? "text-right" : "text-left"}`}>
         {links.map((item, index) => (
           <li key={index}>
             <a href={item.href}>{item.label}</a>
@@ -49,9 +47,7 @@ export default function BaseFooter() {
         ))}
       </ul>
       <div className="mt-12 address">
-        <p className="mb-1">
-          {isArabic ? "13211 الرياض، الروضة" : "13211 Riyadh , Alrawdah"}
-        </p>
+        <p className="mb-1">{isArabic ? "13211 الرياض، الروضة" : "13211 Riyadh , Alrawdah"}</p>
         <p className="mb-1">920027202</p>
         <p>
           <a href="mailto:info@mawarid.com.sa">info@mawarid.com.sa</a>

@@ -29,7 +29,7 @@ export default function MenuHeader() {
   }
 
   const texts = {
-    about: locale === "ar" ? "عن الموارد" : "ABOUT MAWARID",
+    aboutMawarid: locale === "ar" ? "عن الموارد" : "ABOUT MAWARID",
     services: locale === "ar" ? "الخدمات" : "SERVICES",
     achievement: locale === "ar" ? "الإنجازات" : "ACHIEVEMENT",
     contact: locale === "ar" ? "تواصل معنا" : "CONTACT US",
@@ -39,7 +39,7 @@ export default function MenuHeader() {
   };
 
   return (
-    <div className="w-screen bg-white sticky top-0 z-1000">
+    <div className="w-screen bg-white sticky top-0 z-10">
     <div className="flex sm:flex-shrink-1 px-4 xl:px-18 justify-between items-center py-6  bg-white  w-screen container mx-auto">
       {/* Mobile menu */}
       <div className="pt-3 xl:hidden relative">
@@ -65,7 +65,7 @@ export default function MenuHeader() {
         <ul className="flex gap-4 h-full items-center justify-center w-full text-sm font-bold pt-2 ">
           <li className="hover:text-[#fdbd3f] flex gap-3">
             {/* internal route - use Link and locale */}
-            <Link href={`/${locale}/about-mawarid`} locale={locale}>{texts.about}</Link>
+            <Link href={`/${locale}/about-mawarid`} locale={locale}>{texts.aboutMawarid}</Link>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
@@ -74,7 +74,7 @@ export default function MenuHeader() {
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
-        <li className="hover:text-[#fdbd3f] flex gap-3">
+        <li className="hover:text-[rgb(253,189,63)] flex gap-3">
             <a href={`/${locale}#Achievements`} >{texts.achievement}</a>
             <div className="bg-[#fdbd3f] w-1" />
           </li>

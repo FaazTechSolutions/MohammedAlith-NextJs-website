@@ -33,10 +33,7 @@ export interface AboutItem {
   imgposition?: "Left" | "Right" | null;
   IsBackground?: "True" | "False" | null;
   action?: string | null;
-  Order: number;
-  steps: string;
-  stepsHeader: string;
-  stepsDescription: string;
+ 
 }
 
 export interface ServicePageItem {
@@ -54,6 +51,7 @@ export interface ServicePageItem {
 export interface CombinedProps {
   aboutItems?: AboutItem[];
   serviceItems?: ServicePageItem[];
+
 }
 
 
@@ -110,9 +108,9 @@ export default function ServicesSection({ aboutItems, serviceItems,}: CombinedPr
         return (
           <div key={x.RecId || index} className={`py-20 px-18 container mx-auto`}>
             <div className="py-4   ">
-              <div className="flex flex-col md:flex-row gap-16">
+              <div className="flex flex-col md:flex-row gap-8">
               
-                {x.imgposition === "Left" && x.Image && (
+                {/* {x.imgposition === "Left" && x.Image && (
                   <div className=" ">
                     <img
                       src={x.Image}
@@ -120,10 +118,10 @@ export default function ServicesSection({ aboutItems, serviceItems,}: CombinedPr
                       className="mx-auto max-h-80 object-contain"
                     />
                   </div>
-                )}
+                )} */}
 
                
-                <div className="w-3/6">
+                <div className="w-3/6 pt-8">
                   {x.Header && (
                     <h3 className="text-4xl font-Header  font-bold mb-2">{x.Header}</h3>
                   )}

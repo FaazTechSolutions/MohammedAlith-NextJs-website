@@ -1,6 +1,7 @@
 import { getMessages } from "../lib/api";
 import ServicesSection from "../components/serviceSection";
 import { BoardMembers,BoardMemberItem } from "../components/boardMember";
+import BaseFooter from "../components/BaseFooter";
 export default async function AboutPage({ locale }: { locale: 'ar' | 'en' })
 {
   const data = await getMessages(locale);
@@ -17,11 +18,11 @@ export default async function AboutPage({ locale }: { locale: 'ar' | 'en' })
 const AllBoardofDirectors = items.filter(
   (item: any) => item.WorkItemType === 'BoardMember' && item.ParentId === parentId
 );
-console.log("AllBoardofDirectors",AllBoardofDirectors);
+// console.log("AllBoardofDirectors",AllBoardofDirectors);
 const BoardofDirectorsTitle = items.filter(
   (item: any) => item.WorkItemType === 'Section' && item.RecId === recId
 );
-    console.log("BoardofDirectorsTitle",BoardofDirectorsTitle);
+    // console.log("BoardofDirectorsTitle",BoardofDirectorsTitle);
 
     const BoardofDirectors=AllBoardofDirectors.filter(
   (item: any) => item.boardPosition!== position 
@@ -30,10 +31,10 @@ const BoardofDirectorsTitle = items.filter(
  const Chairman =AllBoardofDirectors.find(
   (item: any) => item.boardPosition === position
 );
-console.log("Chairman", Chairman);
+// console.log("Chairman", Chairman);
 
  const goDetails = (member: BoardMemberItem) => {
-    console.log("View details for:", member);
+    // console.log("View details for:", member);
   };
 
 
@@ -46,6 +47,7 @@ return(
         BoardofDirectors={BoardofDirectors}
      
       />
+      {/* <BaseFooter/> */}
     </>
 
 
