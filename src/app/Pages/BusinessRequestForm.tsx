@@ -23,17 +23,7 @@ export default function BusinessRequestForm() {
     email: isArabic ? "البريد الإلكتروني (اختياري)" : "Email (Optional)",
     note: isArabic ? "ملاحظة" : "Note",
     submit: isArabic ? "إرسال" : "Submit",
-    requiredMsg: isArabic
-      ? "يرجى ملء جميع الحقول المطلوبة!"
-      : "Please fill all required fields!",
-    successTitle: isArabic ? "تم الإرسال!" : "Thank you!",
-    successText: isArabic
-      ? "تم إرسال طلبك بنجاح."
-      : "Your request has been submitted successfully.",
-    errorText: isArabic
-      ? "حدث خطأ. حاول مرة أخرى لاحقًا."
-      : "Something went wrong. Please try again later.",
-  };
+   };
 
   const methods = useForm<BusinessFormValues>({
     mode: "onSubmit",
@@ -69,18 +59,13 @@ export default function BusinessRequestForm() {
 
       reset();
     } catch (error) {
-      Swal.fire({
-        title: "Error",
-        text: texts.errorText,
-        icon: "error",
-        confirmButtonColor: "#d33",
-      });
+     console.log("Something went wrong. Please try again later");
     }
   };
 
   const onError = () => {
     Swal.fire({
-      text: texts.requiredMsg,
+      text:"Please fill all required fields!",
       icon: "warning",
       confirmButtonText: "OK",
       confirmButtonColor: "#3085d6",

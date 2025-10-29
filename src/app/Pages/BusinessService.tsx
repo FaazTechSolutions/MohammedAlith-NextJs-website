@@ -8,7 +8,7 @@ export default async function BusinessService({ locale }: { locale: "ar" | "en" 
         (item: any) => item.WorkItemType === 'Service' && item.ParentId === 58
       );
     
-    //   console.log(" businessService",  businessService);
+      console.log(" businessService",  businessService);
     return(
           <div>
              <ServicesSection  serviceItems={businessService}  />

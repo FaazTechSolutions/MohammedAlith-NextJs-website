@@ -74,11 +74,7 @@ const texts = {
 
       reset();
     } catch (error) {
-      Swal.fire({
-        title: "Error",
-        text: "Something went wrong. Please try again later.",
-        icon: "error",
-      });
+      console.log("Something went wrong. Please try again later");
     }
   };
 

@@ -148,15 +148,19 @@ body {
 
  
 .form-control{
+  display: block;
      font-size: 1rem;
     font-weight: 400;
- padding-inline: 6px;
- padding-block: 2px;
+ padding: .375rem .75rem;
  width: 100%;
  border:1px solid  #dee2e6 ;
   
   border-radius: 6px;
   margin-top: 2px;
+   line-height: 1.5;
+
+ 
+ 
  }
 
  .form-control:focus{
@@ -165,6 +169,45 @@ body {
   outline: none;
  box-shadow: 0 0 0 .25rem rgba(13,110,253,.25);
  }
+
+ 
+
+/* Base dropdown container setup */
+.relative .form-control {
+  appearance: none; /* hide native arrow */
+  padding-right: 2.5rem; /* space for custom arrow */
+}
+
+/* Common dropdown toggle */
+.dropdown-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+
+  border-top: 0.4em solid #333; /* arrow color */
+  border-right: 0.4em solid transparent;
+  border-left: 0.4em solid transparent;
+ 
+}
+
+/* LTR layout */
+.ltr .dropdown-toggle::after {
+  right: 1rem;
+}
+
+/* RTL layout */
+.rtl .dropdown-toggle::after {
+  left: 1rem;
+}
+
+/* Optional: hover effect for better UI */
+
+
+
+
+
+
+
   
 
   .ba-img {

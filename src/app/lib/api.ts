@@ -1,10 +1,10 @@
 // import 'server-only';
 
-const En_API_URL = "https://portal.mawarid.com.sa/SystemApi/api/v1/entitytype/dynamic/getbycategoryid?CategoryId=CDN0000012"
+const En_API_URL = "https://portal.mawarid.com.sa/SystemApi/api/v1/entitytype/dynamic/getbycategoryid?CategoryId=CDN0000012&getfromjson=true"
 
 
 
-const Ar_API_URL ="https://portal.mawarid.com.sa/SystemApi/api/v1/entitytype/dynamic/getbycategoryid?CategoryId=CDN0000018"
+const Ar_API_URL ="https://portal.mawarid.com.sa/SystemApi/api/v1/entitytype/dynamic/getbycategoryid?CategoryId=CDN0000018&getfromjson=true"
   // const API_URL = locale === "ar" ? Ar_API_URL : En_API_URL;
 
 
@@ -34,7 +34,7 @@ export async function getMessages(locale: 'ar' | 'en') {
     }
 
     const data = await res.json();
-    // console.log('API response:', data);
+    console.log('API response:', data);
     return data || {};
   } catch (error) {
     

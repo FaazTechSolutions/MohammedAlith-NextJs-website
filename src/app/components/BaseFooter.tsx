@@ -14,7 +14,12 @@ export default function BaseFooter() {
   const bgClass = isWhiteBg ? "bg-white" : "basefooter";
 
   // --- Hide footer on investor relation page ---
-  const hideFooter = pathname?.includes("investor-relation");
+  const hideFooter =
+  pathname?.includes("investor-relation") ||
+  pathname?.includes("business-request-form") ||
+  pathname?.includes("elite-request-form.html");
+
+
   if (hideFooter) return null;
 
   const links = isArabic

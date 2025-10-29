@@ -5,6 +5,7 @@ import InvestorRelationPage from "@/app/Pages/InvestorRelations";
 import BusinessService from "@/app/Pages/BusinessService";
 import EliteService from "@/app/Pages/EliteService";
 import BusinessRequestForm from "@/app/Pages/BusinessRequestForm";
+import EliteRequestForm from "@/app/Pages/EliteRequestForm";
 
 export const dynamic = "force-static";
 
@@ -18,6 +19,7 @@ export function generateStaticParams() {
     "business-service",
     "elite-service",
     "business-request-form",
+    "elite-request-form.html"
   ];
 
   const params: { locale: string; section: string }[] = [];
@@ -67,6 +69,12 @@ export default async function SectionPage({
       Component = <BusinessRequestForm  />;
       break;
 
+
+        
+            case "elite-request-form.html":
+      Component = <EliteRequestForm />;
+      break;
+      
     default:
       Component = (
         <div className="p-10 text-center">

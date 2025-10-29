@@ -9,12 +9,12 @@ export default async function EliteService({ locale }: { locale: "ar" | "en" }){
             (item: any) => item.WorkItemType === 'Banner' && item.ParentId === 50
           );
 
-        //   console.log('EliteBanner',EliteBanner);
+          // console.log('EliteBanner',EliteBanner);
 
           const EliteService=items.filter(
             (item: any) => item.WorkItemType === 'Service' && item.ParentId === 55
           );
-          console.log('EliteService',EliteService);
+          // console.log('EliteService',EliteService);
     return(
          <div>
              <Banner banners={EliteBanner} locale={locale} />
