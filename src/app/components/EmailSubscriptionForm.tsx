@@ -3,7 +3,7 @@ import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Swal from "sweetalert2";
 import { DynamicApi } from "../lib/dynamicApi"; 
-import { useLocale } from "next-intl";// ✅ external API file
+import { useLocale } from "next-intl";
 
 // Form types
 export interface FormValues {

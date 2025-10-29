@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getMessages } from '../app/lib/api';
 
 const locales = ['en', 'ar'];
-const defaultLocale = 'ar'; // Default locale for static export
+const defaultLocale = 'ar'; 
 
 export default getRequestConfig(async () => {
   const locale: any = defaultLocale;

@@ -1,11 +1,19 @@
 import React from "react";
-import { InvestorRelation } from "../lib/api";
+import { getMessages } from "../lib/api";
 import InvestorTabs from "../components/investortabs";
-import { InvestorItem } from "../components/investorSection";
+
+
 
 export default async function InvestorRelationPage({ locale }: { locale: "ar" | "en" }) {
-  // Fetch data from API
-  const data: InvestorItem[] = await InvestorRelation({ locale });
+  
+ const data = await getMessages(locale);
+  const items = data?.result?.Data || [];
 
-  return <InvestorTabs locale={locale} news={data} reports={[]} investorContacts={[]} />;
+    const investorRelation = items.filter(
+    (item: any) => item.WorkItemType === 'News' && item.ParentId === 56
+    
+  );
+
+
+  return <InvestorTabs locale={locale} news={investorRelation} reports={[]} investorContacts={[]} />;
 }

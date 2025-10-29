@@ -12,9 +12,9 @@ export const dynamic = "force-static";
 export function generateStaticParams() {
   const locales = ["ar", "en"];
   const sections = [
-    "about-mawarid.html",
-    "services.html",
-    "investor-relation.html",
+    "about-mawarid",
+    "services",
+    "investor-relation",
     "business-service",
     "elite-service",
     "business-request-form",
@@ -42,14 +42,15 @@ export default async function SectionPage({
   let Component: React.ReactNode;
 
   switch (section) {
+    case"about-mawarid":
     case "about-mawarid.html":
       Component = <AboutPage locale={locale as "ar" | "en"} />;
       break;
-
+    case "services":
     case "services.html":
       Component = <Services locale={locale as "ar" | "en"} />;
       break;
-
+    case "investor-relation":
     case "investor-relation.html":
       Component = <InvestorRelationPage locale={locale as "ar" | "en"} />;
       break;

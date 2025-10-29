@@ -48,7 +48,7 @@ export default function MenuHeader() {
 
       {/* Logo - use Link and locale prop */}
       <div>
-          <Link href={`/${locale}.html` }>
+          <Link href={`/${locale}` }>
           <img
             src="https://mawarid.com.sa/assets/images/logo.png"
             alt="logo"
@@ -65,12 +65,12 @@ export default function MenuHeader() {
         <ul className="flex gap-4 h-full items-center justify-center w-full text-sm font-bold pt-2 ">
           <li className="hover:text-[#fdbd3f] flex gap-3">
             {/* internal route - use Link and locale */}
-            <Link href={`/${locale}/about-mawarid.html`} locale={locale}>{texts.aboutMawarid}</Link>
+            <Link href={`/${locale}/about-mawarid`} locale={locale}>{texts.aboutMawarid}</Link>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
           <li className="hover:text-[#fdbd3f] flex gap-3">
-            <Link href={`/${locale}/services.html`} locale={locale}>{texts.services}</Link>
+            <Link href={`/${locale}/services`} locale={locale}>{texts.services}</Link>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
@@ -85,7 +85,7 @@ export default function MenuHeader() {
           </li>
 
           <li className="hover:text-[#fdbd3f] flex gap-3">
-            <Link href={`/${locale}/investor-relation.html`} locale={locale}>{texts.investor}</Link>
+            <Link href={`/${locale}/investor-relation`} locale={locale}>{texts.investor}</Link>
           </li>
         </ul>
         

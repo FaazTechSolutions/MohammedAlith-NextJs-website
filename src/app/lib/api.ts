@@ -1,7 +1,10 @@
 // import 'server-only';
 
-const En_API_URL = process.env.API_URL;
-const Ar_API_URL = process.env.API_URL2;
+const En_API_URL = "https://portal.mawarid.com.sa/SystemApi/api/v1/entitytype/dynamic/getbycategoryid?CategoryId=CDN0000012"
+
+
+
+const Ar_API_URL ="https://portal.mawarid.com.sa/SystemApi/api/v1/entitytype/dynamic/getbycategoryid?CategoryId=CDN0000018"
   // const API_URL = locale === "ar" ? Ar_API_URL : En_API_URL;
 
 
@@ -38,16 +41,4 @@ export async function getMessages(locale: 'ar' | 'en') {
     console.error(`Error fetching messages for locale ${locale}:`, error);
     return {};
   }
-}
-export  async function InvestorRelation({ locale }: { locale: 'ar' | 'en' }){
-  const data = await getMessages(locale);
-  const items = data?.result?.Data || [];
-
-    const investorRelation = items.filter(
-    (item: any) => item.WorkItemType === 'News' && item.ParentId === 56
-    
-  );
-
-  // console.log("investorRelation",investorRelation)
-    return investorRelation;
 }
