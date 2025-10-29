@@ -35,7 +35,7 @@ export default async function Home({ locale }: { locale: 'ar' | 'en' }){
         (item: any) => item.WorkItemType === 'Service' && item.ParentId === 54
       );
 
-    //   console.log('Home',serviceSection);
+      console.log('Home',serviceSection);
     //       console.log('Banner',Banner);
     //           console.log('Services',Services);
     //            console.log('Achieve',Achievement);

@@ -17,7 +17,7 @@ export interface AchieveProps {
 
 export default function Achievements({ achieve }: AchieveProps) {
   return (
-    <section className="counter-box py-20 px-18  " id="Achievements">
+    <section className="counter-box py-20 px-18" id="Achievements">
       <div className="counter-container flex flex-wrap justify-center gap-10 container mx-auto">
         {achieve.map((item, idx) => (
           <div key={idx} className="flex flex-col items-start">

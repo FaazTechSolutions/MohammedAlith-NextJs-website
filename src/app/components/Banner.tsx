@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
+import Slider from "react-slick";
 
-// ✅ Define the interface for each banner item
 export interface BannerItem {
   RecId: number;
   BannerText: string;
@@ -13,59 +14,86 @@ export interface BannerItem {
   Order: number;
 }
 
-// ✅ Define the props type
 export interface BannerProps {
   banners: BannerItem[];
-  locale: "ar" | "en"; // Added locale for RTL/LTR support
+  locale: "ar" | "en";
 }
 
-// ✅ Component
 export default function Banner({ banners, locale }: BannerProps) {
   const isRtl = locale === "ar";
-
-  // Sort banners by Order
   const sortedBanners = [...banners].sort((a, b) => a.Order - b.Order);
 
-  return (
-    <div className="w-screen " dir={isRtl ? "rtl" : "ltr"}>
-      {sortedBanners.map((banner) => (
-        <div
-          key={banner.RecId}
-          className=" relative p-1 md:h-4/6 w-full overflow-hidden"
-        >
-          {/* Background Image */}
-          {banner.Image && (
-            <img
-              src={banner.Image}
-              alt="banner"
-              draggable="false"
-              className="min-h-82 xl:h-full w-full object-cover "
-            />
-          )}
+  const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    speed: 800,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    rtl: isRtl,
+  };
 
-          {/* Text Overlay */}
-          <div className="container mx-auto">
-          <div
-            className={`px-18  absolute top-10 font-bold ${
-              isRtl
-                ? " text-right"
-                : " text-left"
-            } flex flex-col gap-4 lg:gap-6`}
-          >
-            {banner.BannerText && (
-              <h1 className="font-bold text-gray-600 text-5xl xl:text-6xl">
-                {banner.BannerText}
-              </h1>
-            )}
-            {banner.BannerSubText && (
-              <h2 className="font-bold text-4xl xl:text-5xl text-white">
-                {banner.BannerSubText}
-              </h2>
-            )}
-          </div>
-          </div>
+  return (
+    <div className="w-screen banner" dir={isRtl ? "rtl" : "ltr"}>
+    
+      {sortedBanners.length > 1 ? (
+        // Multiple images → use Slider
+        <Slider {...settings} className="rounded-white">
+          {sortedBanners.map((banner) => (
+            <BannerSlide key={banner.RecId} banner={banner} isRtl={isRtl} />
+          ))}
+        </Slider>
+      ) : (
+    
+        sortedBanners.map((banner) => (
+          <BannerSlide key={banner.RecId} banner={banner} isRtl={isRtl} />
+        ))
+      )}
+    </div>
+  );
+}
+
+
+function BannerSlide({
+  banner,
+  isRtl,
+}: {
+  banner: BannerItem;
+  isRtl: boolean;
+}) {
+  return (
+    <div className="relative p-1 md:h-4/6 w-full overflow-hidden">
+
+      {banner.Image && (
+        <img
+          src={banner.Image}
+          alt="banner"
+          draggable="false"
+          className="min-h-82 xl:h-full w-full object-cover"
+        />
+      )}
+
+      {/* Text Overlay */}
+      <div className="container mx-auto">
+        <div
+          className={`px-18 absolute top-10 font-bold ${
+            isRtl ? "text-right" : "text-left"
+          } flex flex-col gap-4 lg:gap-6`}
+        >
+          {banner.BannerText && (
+            <h1 className="font-bold text-gray-600 text-5xl xl:text-6xl">
+              {banner.BannerText}
+            </h1>
+          )}
+          {banner.BannerSubText && (
+            <h2 className="font-bold text-4xl xl:text-5xl text-white">
+              {banner.BannerSubText}
+            </h2>
+          )}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

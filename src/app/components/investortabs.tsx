@@ -14,7 +14,9 @@ export default function InvestorTabs({ locale, news, reports, investorContacts}:
   const [activeTab, setActiveTab] = useState<"news" | "reports" | "email" | "investor-Contacts">("news");
   const isArabic = locale === "ar";
 
+  const Title= isArabic ?"علاقات المستثمرين":"INVESTOR RELATIONS"
   const texts = {
+   
     News: isArabic ? "اخر الاخبار" : "News",
     Reports: isArabic ? "التقارير" : "Reports",
     EmailSubscription: isArabic
@@ -32,7 +34,9 @@ export default function InvestorTabs({ locale, news, reports, investorContacts}:
     <div className="px-18 py-4 container m-auto">
       <div dir={isArabic ? "rtl" : "ltr"} className="mt-5 flex ">
         {/* Tabs */}
-        <ul className={`w-2/6 font-bold ${isArabic ? "text-right" : "text-left"}`}>
+       
+        <ul className={`w-3/6 font-bold ${isArabic ? "text-right" : "text-left"}`}>
+         <h1 className="text-2xl text-bold">{Title}</h1>
           {tabLabels.map((label, index) => {
             const key = tabKeys[index];
             const isActive = activeTab === key;
@@ -43,23 +47,18 @@ export default function InvestorTabs({ locale, news, reports, investorContacts}:
                 className={`cursor-pointer py-2 transition-colors ${isActive ? "text-yellow-500 font-semibold" : "text-gray-700"}`}
               >
                 {label}
-                <div className={`h-[4px] transition-all ${isActive ? "theme-bgcolor w-2/4" : "bg-gray-500 w-2/4"}`}></div>
+                <div className={`h-[4px] transition-all ${isActive ? "theme-bgcolor w-2/4" : "bg-gray-200 w-2/4"}`}></div>
               </li>
             );
           })}
         </ul>
 
         {/* Tab content */}
-        <div className="flex-1">
+        <div className="w-4/6">
+          
           {activeTab === "news" && <InvestorSection locale={locale} items={news} type="news" />}
           {activeTab === "reports" && <InvestorSection locale={locale} items={reports} type="reports" />}
-          {activeTab === "email" && (
-            <div>
-                 {/* <Reports locale={locale}/> */}
-              <h2 className="font-bold text-lg">{isArabic ? "الاشتراك في النشرة البريدية" : "Subscribe to our newsletter"}</h2>
-              <p className="mt-2">{isArabic ? "أدخل بريدك الإلكتروني لتلقي آخر الأخبار والتقارير." : "Enter your email to receive the latest updates and reports."}</p>
-            </div>
-          )}
+          {activeTab === "email" && <InvestorSection locale={locale} items={reports} type="Email Subscription" />}
           {activeTab === "investor-Contacts" && <InvestorSection locale={locale} items={investorContacts} type="investor-Contacts" />}
            
          

@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Reports from "./reports";
+import EmailSubscriptionForm from "./EmailSubscriptionForm";
 
 export interface InvestorItem {
   Title: string;
@@ -28,11 +29,11 @@ export default function InvestorSection({ locale, items = [], type = "news" }: P
 
   const InvestorContacts = [
     {
-     Question:locale=='ar'?"":"If you have any question or comment about Ma'aden and its operations, please contact investor relations",
-      Title:locale=='ar'?"":"Mawarid manpower company",
-      Address:locale=='ar'?"":"13211 Riyadh , Alrawdah",
-      PhoneNo:locale=='ar'?"":"920028886",
-      Email:locale=='ar'?"":"ir@mawarid.com.sa"
+     Question:locale=='ar'?"إذا كان لديك أي سؤال أو تعليق حول شركة الموارد، يرجى الاتصال بعلاقات المستثمرين:":"If you have any question or comment about Ma'aden and its operations, please contact investor relations",
+      Title:locale=='ar'?"شركة الموارد للقوى البشرية":"Mawarid manpower company",
+      Address:locale=='ar'?"13211 الرياض، الروضة":"13211 Riyadh , Alrawdah",
+      PhoneNo:locale=='ar'?"920028886":"920028886",
+      Email:locale=='ar'?"ir@mawarid.com.sa":"ir@mawarid.com.sa"
 
 
     },
@@ -64,13 +65,21 @@ export default function InvestorSection({ locale, items = [], type = "news" }: P
     <h3 className="font-bold theme-color mt-4">{contact.Title}</h3>
     {contact.Address}
     <p>Phone: {contact.PhoneNo}</p>
-    <p className="theme-color">Email: {contact.Email}</p>
+    <a href="mailto:ir@mawarid.com.sa" className="theme-color">Email: {contact.Email}</a>
   </div>
 ))}
       </div>
     )
   }
  
+  if (type==="Email Subscription"){
+    return(
+      <div className="grid gap-3">
+      <Reports locale={locale}/>
+      <EmailSubscriptionForm/>
+      </div>
+    )
+  }
   // Sort items descending: first by order, then by NewsDate
   const sortedItems = (items ?? []).sort((a, b) => {
     // First sort by order descending

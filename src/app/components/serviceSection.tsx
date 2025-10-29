@@ -59,7 +59,7 @@ export default function ServicesSection({ aboutItems, serviceItems,}: CombinedPr
 
   const dataList = aboutItems ?? serviceItems ?? [];
 
-
+const locale: "en" | "ar" = "ar";
   const sortedList =
     "Order" in (dataList[0] || {})
       ? [...dataList].sort((a: any, b: any) => a.Order - b.Order)
@@ -79,8 +79,23 @@ export default function ServicesSection({ aboutItems, serviceItems,}: CombinedPr
         }
 
         const actionText = parsedAction ? Object.keys(parsedAction)[0] : null;
-        const actionValue = parsedAction ? Object.values(parsedAction)[0] : null;
-
+        let actionValue = parsedAction ? Object.values(parsedAction)[0] : null;
+       
+         
+        let finalActionValue = actionValue;
+      
+if (
+  actionValue &&
+  !actionValue.startsWith("http://") &&
+  !actionValue.startsWith("https://") &&
+  !actionValue.includes(`/${locale}/`)
+) {
+  if (actionValue.startsWith("/")) {
+    finalActionValue = `/${locale}/${actionValue}`;
+  } else {
+    finalActionValue = `/${locale}/${actionValue}`;
+  }
+}
         
         let slideImages: string[] = [];
         if (x.slides) {
@@ -177,9 +192,20 @@ export default function ServicesSection({ aboutItems, serviceItems,}: CombinedPr
 
                 <div className="flex justify-end">
   {x.Header && actionText && actionValue && (
-    <a
-      href={actionValue}
-      target="_blank"
+    <a href={
+        x.Header === "HEMAH" ||
+        x.Header === "HEMAHTECH" ||
+        x.Header === "SAWAID"
+         ? actionValue ?? undefined // ✅ convert null to undefined
+          : finalActionValue ?? undefined // 🔹 use locale-prefixed link
+      }
+      target={
+        x.Header === "HEMAH" ||
+        x.Header === "HEMAHTECH" ||
+        x.Header === "SAWAID"
+          ? "_blank"
+          : ""
+      }
       rel="noopener noreferrer"
       className={`inline-block mt-4 px-2 py-2 border-2 text-white transition-all duration-300
         ${

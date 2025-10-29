@@ -19,18 +19,18 @@ export default function BaseFooter() {
 
   const links = isArabic
     ? [
-        { href: "/about-mawarid", label: "عن الموارد" },
-        { href: "/services", label: "الخدمات" },
-        { href: "#Achievements", label: "الإنجازات" },
-        { href: "#Contactus", label: "تواصل معنا" },
-        { href: "/investor-relation", label: "علاقات المستثمرين" },
+        { href: `/${locale}/about-mawarid.html`, label: "عن الموارد" },
+        { href: `/${locale}/services`, label: "الخدمات" },
+        { href: `/${locale}#Achievements`, label: "الإنجازات" },
+        { href: `/${locale}#ContactUs`, label: "تواصل معنا" },
+        { href: `/${locale}/investor-relation`, label: "علاقات المستثمرين" },
       ]
     : [
-        { href: "/about-mawarid", label: "ABOUT ALMAWARID" },
-        { href: "/services", label: "SERVICES" },
-        { href: "#Achievements", label: "ACHIEVEMENTS" },
-        { href: "#Contactus", label: "CONTACT" },
-        { href: "/investor-relation", label: "INVESTOR RELATIONS" },
+        { href: `/${locale}/about-mawarid.html`, label: "ABOUT ALMAWARID" },
+        { href: `/${locale}/services`, label: "SERVICES" },
+        { href: `/${locale}#Achievements`, label: "ACHIEVEMENTS" },
+        { href:`/${locale}#ContactUs`, label: "CONTACT" },
+        { href:`/${locale}/investor-relation`, label: "INVESTOR RELATIONS" },
       ];
 
   return (
