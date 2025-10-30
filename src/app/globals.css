@@ -251,20 +251,34 @@ body {
   color: #000 !important;
   opacity: 0.5;
 }
+ /* Common styles */
 
-.banner .slick-dots{
-  top:0 !important;
-  left:92% !important;
-    text-align: start !important;
-   
 
+/* Base dot style */
+.banner .slick-dots {
+  position: absolute !important;
+  top: 0 !important;
+  text-align: start !important;
 }
-.banner .slick-dots li button:before{
- /* border:1px solid white !important; */
-     color:white !important;
-     /* border-radius: 50%; */
-     /* border:1px solid white; */
+
+.banner .slick-dots li button:before {
+  color: white !important;
 }
+
+/* English (LTR) — dots on the RIGHT end */
+.banner .ltr .slick-dots {
+  left: 92% !important;
+  right: auto !important;
+}
+
+/* Arabic (RTL) — dots on the LEFT end */
+.banner .rtl .slick-dots {
+  right:-1% !important;
+  left: auto !important;
+}
+
+
+
 
 .img-frame{
  position: absolute;

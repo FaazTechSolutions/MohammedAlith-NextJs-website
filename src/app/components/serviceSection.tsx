@@ -121,7 +121,7 @@ if (
        
 
         return (
-          <div key={x.RecId || index} className={`py-20 px-18 container mx-auto`}>
+          <div key={x.RecId || index} className={` px-18 container mx-auto`}>
             <div className="py-4   ">
               <div className="flex flex-col md:flex-row gap-8">
               

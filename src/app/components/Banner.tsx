@@ -27,7 +27,7 @@ export default function Banner({ banners, locale }: BannerProps) {
     dots: true,
     infinite: true,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 8000,
     speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -36,17 +36,19 @@ export default function Banner({ banners, locale }: BannerProps) {
   };
 
   return (
-    <div className="w-screen banner" dir={isRtl ? "rtl" : "ltr"}>
-    
+    <div
+      dir={isRtl ? "rtl" : "ltr"}
+      className={`banner w-screen`}
+    >
       {sortedBanners.length > 1 ? (
-        // Multiple images → use Slider
+        <div className={isRtl ? "rtl" : "ltr"}>
         <Slider {...settings} className="rounded-white">
           {sortedBanners.map((banner) => (
             <BannerSlide key={banner.RecId} banner={banner} isRtl={isRtl} />
           ))}
         </Slider>
+        </div>
       ) : (
-    
         sortedBanners.map((banner) => (
           <BannerSlide key={banner.RecId} banner={banner} isRtl={isRtl} />
         ))
@@ -54,7 +56,6 @@ export default function Banner({ banners, locale }: BannerProps) {
     </div>
   );
 }
-
 
 function BannerSlide({
   banner,
@@ -65,17 +66,15 @@ function BannerSlide({
 }) {
   return (
     <div className="relative p-1 md:h-4/6 w-full overflow-hidden">
-
       {banner.Image && (
         <img
           src={banner.Image}
           alt="banner"
           draggable="false"
-          className="min-h-82 xl:h-full w-full object-cover"
+          className="h-full object-c0ntain"
         />
       )}
 
-      {/* Text Overlay */}
       <div className="container mx-auto">
         <div
           className={`px-18 absolute top-10 font-bold ${
