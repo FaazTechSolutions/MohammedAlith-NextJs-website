@@ -57,15 +57,15 @@ export default async function SectionPage({
       Component = <InvestorRelationPage locale={locale as "ar" | "en"} />;
       break;
 
-    case "business-service":
+    case "business-service.html":
       Component = <BusinessService locale={locale as "ar" | "en"} />;
       break;
 
-    case "elite-service":
+    case "elite-service.html":
       Component = <EliteService locale={locale as "ar" | "en"} />;
       break;
 
-    case "business-request-form":
+    case "business-request-form.html":
       Component = <BusinessRequestForm  />;
       break;
 

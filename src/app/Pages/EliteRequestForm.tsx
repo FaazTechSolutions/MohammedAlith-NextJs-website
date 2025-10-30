@@ -1,4 +1,6 @@
 "use client";
+import { FaPlus } from "react-icons/fa";
+
 import React from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Swal from "sweetalert2";
@@ -15,7 +17,7 @@ interface EliteFormValues {
   gender: string;
   ageFrom?: number;
   ageTo?: number;
-  language?: string;
+Langueges  ?: string;
   qualification?: string;
   housingType?: string;
   salary?: string;
@@ -35,7 +37,7 @@ export default function EliteRequestForm() {
       profession: "",
       nationality: "",
       gender: "",
-      language: "",
+      Langueges: "",
       qualification: "",
       housingType: "",
       salary: "",
@@ -74,18 +76,18 @@ export default function EliteRequestForm() {
         Gender: data.gender,
         AgeFrom: data.ageFrom,
         AgeTo: data.ageTo,
-        Language: data.language,
+        Langueges: data.Langueges,
         Qualification: data.qualification,
         HousingType: data.housingType,
         Salary: data.salary,
-        NatureOfWork: data.natureOfWork,
+        NatureofWork: data.natureOfWork,
       };
 
       console.log("Elite Request EliteData:", EliteData);
 
       await DynamicApi(EliteData);
 
-      // 🔹 Just reset silently (no success popup)
+      Swal.fire("Success", "Your request has been submitted successfully!", "success");
       reset();
     } catch (error) {
       // 🔹 Keep error popup for API failure
@@ -225,13 +227,13 @@ export default function EliteRequestForm() {
             </div>
           </div>
 
-          {/* Language + Qualification */}
+          {/* Langueges + Qualification */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block mb-1 font-medium">Language</label>
+              <label className="block mb-1 font-medium">Langueges</label>
               <div className="relative">
-                <select {...register("language")} className="form-control ">
-                  <option value="">Select Language</option>
+                <select {...register("Langueges")} className="form-control ">
+                  <option value="">Select Langueges</option>
                   <option value="English">English</option>
                   <option value="Arabic">Arabic</option>
                 </select>
@@ -283,8 +285,8 @@ export default function EliteRequestForm() {
 
           <div className="clearfix my-3">
                     <span className="create_action">
-                        <button className="btn btn-sm">
-                            <i className="fa fa-plus color: white"></i>
+                        <button className="bg-amber-400">
+                            <i className="text-white"><FaPlus /></i>
                         </button>
                     </span>
                 </div>
