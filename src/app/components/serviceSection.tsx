@@ -121,7 +121,7 @@ if (
        
 
         return (
-          <div key={x.RecId || index} className={` px-18 container mx-auto`}>
+          <div key={x.RecId || index} className={`container px-4 mx-auto`}>
             <div className="py-4   ">
               <div className="flex flex-col md:flex-row gap-8">
               
@@ -136,7 +136,7 @@ if (
                 )} */}
 
                
-                <div className="w-3/6 pt-8">
+                <div className="w-full md:w-1/2 lg:w-1/2">
                   {x.Header && (
                     <h3 className="text-4xl font-Header  font-bold mb-2">{x.Header}</h3>
                   )}

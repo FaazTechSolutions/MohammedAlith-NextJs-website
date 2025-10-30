@@ -66,9 +66,9 @@ body {
     display: flex;
     margin: 0 auto;
     justify-content: center;
-   
     gap: 5px;
-   
+    margin-top: -10%;
+    position: relative;
   }
   .serviceboxes .card{
     width: 280px;
@@ -353,4 +353,75 @@ width: 100%;
      font-weight: bold;
 }
 
+.header,.footer{
+  background-color: #54585b;
+  padding: 15px;
+}
+.header .icons_bar i {
+  color: #fff;
+}
+.header .icons_bar i:hover {
+  color: #fdbd3f;
+}
+.footer .icons_bar i {
+  color: #fdbd3f;
+}
+button {
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 4px 11px;
+    padding: 0.375rem 0.75rem;
+    cursor: pointer;
+}
 
+.base-footer{
+  background-color: #ececec;
+  margin-top: 90PX;
+}
+
+
+@media (max-width:768px) {
+  .serviceboxes{
+    flex-wrap: wrap;
+  }
+  .banner .boxes .card,.serviceboxes .card{
+    flex: 40%;
+  }
+  .flex-caption h1 {
+    font-size: 3rem;
+}
+.line {
+    width: auto !important;
+}
+    .footer .flex {
+        display: flex !important;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+    .flex .items-center{
+      flex-direction: row;
+    }
+    .slick-dots{
+      width: unset !important;
+    position: absolute;
+    top: 7px;
+    right: 0;
+    display: inline-block !important;
+}
+}
+
+.container{
+  max-width: 1320px;
+}
+.line {
+    border-bottom: 2px solid #fdbd3f;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 200px;
+}
+
+@media (min-width: 1200px) {
+    .container, .container-lg, .container-md, .container-sm, .container-xl {
+        max-width: 1140px;
+    }
+}

@@ -17,13 +17,13 @@ export default function Login() {
 
   return (
     <div className="relative">
-      <button
+      <div
         onClick={() => setOpen(!open)}
         className="flex gap-2 text-white transition z-0 items-center"
       >
         {texts.login}
-        <FaCaretDown />
-      </button>
+        <FaCaretDown /> 
+      </div>
 
       {open && (
         <div

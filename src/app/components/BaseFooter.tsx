@@ -41,13 +41,14 @@ export default function BaseFooter() {
   return (
     <div id="ContactUs"
       dir={isArabic ? "rtl" : "ltr"}
-      className={`px-18 py-8 base-footer container m-auto ${bgClass}`}
+      className={`px-4 py-8 base-footer ${bgClass}`}
     >
-      <ul className={`w-1/6 font-Medium ${isArabic ? "text-right" : "text-left"}`}>
+      <div className="container mx-auto">
+      <ul className={`flex flex-wrap font-Medium ${isArabic ? "text-right" : "text-left"}`}>
         {links.map((item, index) => (
-          <li key={index}>
+          <li key={index} className="w-1/2 md:w-1/2 lg:w-full">
             <a href={item.href}>{item.label}</a>
-            <div className="h-[2px] theme-bgcolor w-full mt-2"></div>
+            <div className="line h-[2px] theme-bgcolor w-full mt-2"></div>
           </li>
         ))}
       </ul>
@@ -58,6 +59,7 @@ export default function BaseFooter() {
           <a href="mailto:info@mawarid.com.sa">info@mawarid.com.sa</a>
         </p>
       </div>
+      </  div>
     </div>
   );
 }
