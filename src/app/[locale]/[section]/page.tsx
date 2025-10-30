@@ -16,9 +16,9 @@ export function generateStaticParams() {
     "about-mawarid",
     "services",
     "investor-relation",
-    "business-service",
-    "elite-service",
-    "business-request-form",
+    "business-service.html",
+    "elite-service.html",
+    "business-request-form.html",
     "elite-request-form.html"
   ];
 
