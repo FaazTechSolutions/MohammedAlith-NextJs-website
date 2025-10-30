@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useLocale } from "next-intl";
 import { FaBars, FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Link from "next/link";
 
 export default function MenuHeaderButtons() {
   const [open, setOpen] = useState(false);
@@ -10,25 +11,25 @@ export default function MenuHeaderButtons() {
 
   const closeNav = () => setOpen(false);
 
-  const labels = {
+  const links = {
     ar: [
-      { text: "عن الموارد" },
-      { text: "الخدمات" },
-      { text: "الإنجازات" },
-      { text: "تواصل معنا" },
-      { text: "علاقات المستثمرين" },
+      { text: "عن الموارد", href: `/${locale}about-mawarid` },
+      { text: "الخدمات", href: `/${locale}/services` }, 
+      { text: "الإنجازات", href: `/${locale}#Achievements` },
+      { text: "تواصل معنا", href: `/${locale}#ContactUs` }, 
+      { text: "علاقات المستثمرين", href: `/${locale}/investor-relation` }, 
     ],
     en: [
-      { text: "ABOUT ALMAWARID" },
-      { text: "SERVICES" },
-      { text: "ACHIEVEMENTS" },
-      { text: "CONTACT US" },
-      { text: "INVESTOR RELATIONS" },
+      { text: "ABOUT ALMAWARID", href: `/${locale}about-mawarid` },
+      { text: "SERVICES", href: `/${locale}/services` }, 
+      { text: "ACHIEVEMENTS", href: `/${locale}#Achievements` },
+      { text: "CONTACT US", href: `/${locale}#ContactUs` }, 
+      { text: "INVESTOR RELATIONS", href: `/${locale}/investor-relation` }, 
     ],
   };
 
   return (
-    <div dir={isArabic ? "rtl" : "ltr"} >
+    <div dir={isArabic ? "rtl" : "ltr"}>
       {/* Open Button */}
       <button
         onClick={() => setOpen(true)}
@@ -37,7 +38,7 @@ export default function MenuHeaderButtons() {
         <FaBars />
       </button>
 
-      {/* Sidebar Menu (Always rendered, only moved in/out) */}
+      {/* Sidebar Menu */}
       <div
         className={`absolute -top-8 ${
           isArabic ? "-right-4" : "-left-4"
@@ -58,15 +59,15 @@ export default function MenuHeaderButtons() {
 
           {/* Navigation */}
           <nav className="flex flex-col gap-7 text-sm font-bold pb-6">
-            {labels[locale].map((item, index) => (
+            {links[locale].map((item, index) => (
               <div key={index} className="flex flex-col gap-3">
-                <a
-                  href="#"
+                <Link
+                  href={item.href}
                   onClick={closeNav}
                   className="hover:text-[#fdbd3f]"
                 >
                   {item.text}
-                </a>
+                </Link>
                 <div className="bg-[#fdbd3f] w-full h-0.5"></div>
               </div>
             ))}
@@ -76,4 +77,3 @@ export default function MenuHeaderButtons() {
     </div>
   );
 }
-

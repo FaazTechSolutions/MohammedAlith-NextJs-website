@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+
 interface CounterProps {
   value: number;
   duration?: number;
