@@ -77,17 +77,17 @@ function BannerSlide({
 
       <div className="container mx-auto">
         <div
-          className={`banner-text flex-caption px-18 absolute top-10 font-bold ${
+          className={`banner-text flex-caption px-6 absolute top-10 font-bold ${
             isRtl ? "text-right" : "text-left"
           } flex flex-col gap-4 lg:gap-6`}
         >
           {banner.BannerText && (
-            <h1 className="font-bold text-gray-600 text-5xl xl:text-6xl">
+            <h1 className=" text-gray-600 text-5xl xl:text-6xl">
               {banner.BannerText}
             </h1>
           )}
           {banner.BannerSubText && (
-            <h1 className="font-bold text-4xl xl:text-5xl text-white">
+            <h1 className=" text-4xl xl:text-5xl text-white">
               {banner.BannerSubText}
             </h1>
           )}

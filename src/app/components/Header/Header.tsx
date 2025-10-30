@@ -10,7 +10,7 @@ export default function Header(){
       <Link href='https://x.com/MawaridManpower' target="_blank">
       <img src="https://mawarid.com.sa/assets/images/twittericon.png"
       alt="twitter"
-      width={12} className="pt-1"  />
+      width={12} className="pt-1 twittericon"  />
       </Link>
 
       <Link href='https://www.linkedin.com/company/mawarid-manpower-solutions-company-riyadh-saudi-arabia/' target="_blank">

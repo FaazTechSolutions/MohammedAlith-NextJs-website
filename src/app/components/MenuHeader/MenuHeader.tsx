@@ -20,6 +20,8 @@ export default function MenuHeader() {
 
     useEffect(() => {
     const sections = ["Achievements", "ContactUs"];
+     const header = document.getElementById("menuHeader");
+    const sticky = header?.offsetTop;
     const handleScroll = () => {
       const scrollY = window.scrollY;
       let current = "";
@@ -34,6 +36,12 @@ export default function MenuHeader() {
         }
       });
       setActiveSection(current);
+
+      if (window.pageYOffset > sticky!) {
+        header!.classList.add("sticky");
+      } else {
+        header!.classList.remove("sticky");
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -67,7 +75,7 @@ export default function MenuHeader() {
     pathname === route || pathname.startsWith(route + "/");
 
   return (
-    <div className="w-screen bg-white sticky top-0 z-100 ">
+    <div id="menuHeader" className="w-screen bg-white sticky top-0 z-100 animate-top">
     <div className="flex sm:flex-shrink-1 px-4 xl:px-6 justify-between items-center py-6  bg-white  w-screen container mx-auto">
       {/* Mobile menu */}
       <div className="pt-3 xl:hidden relative">
@@ -144,7 +152,7 @@ export default function MenuHeader() {
       <div className="flex gap-1 xl:gap-2 h-full items-center pt-2">
         {/* Language switch - Link to newPath and pass locale */}
         <Link href={newPath} locale={otherLocale}>
-          <button className="bg-[#fdbd3f] border-2 hover:bg-transparent border-[#fdbd3f] px-2 text-center xl:px-2 xl:py-1">
+          <button className={`bg-[#fdbd3f] border-2 hover:bg-transparent border-[#fdbd3f] px-2 text-center xl:px-2 xl:py-1 ${otherLocale+'-lang'}`}>
             {texts.language}
           </button>
         </Link>
