@@ -24,7 +24,7 @@ export default function Reports({ locale }: ReportsProps) {
           <a
   href="/assets/Mawarid.Investor.Presentation.Q2.2025.Execution.Copy.as.of.17.08.25._vfinal.pdf"
   download="Mawarid_Presentation_Q2_2025.pdf"
-  className="inline-block bg-yellow-400 text-white font-medium px-6 py-4 mt-6 hover:bg-yellow-500 transition-colors"
+  className="inline-block bg-yellow-400 text-white font-medium px-4 py-2 mt-6 hover:bg-yellow-500 transition-colors"
 >
   {item.Button}
 </a>

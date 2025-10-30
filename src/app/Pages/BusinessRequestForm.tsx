@@ -41,7 +41,7 @@ export default function BusinessRequestForm() {
     try {
       const payload = {
         EntityTypeId: 385, 
-        CompanyName: data.companyname,
+        Companyname: data.companyname,
         Phone: data.phone,
         Email: data.email || "",
         Note: data.note || "",
@@ -74,7 +74,7 @@ export default function BusinessRequestForm() {
 
   return (
     <div
-      className="container py-6 bg-white rounded-2xl"
+      className="container mx-auto py-6 bg-white rounded-2xl"
       dir={isArabic ? "rtl" : "ltr"}
     >
       <h4 className="text-center font-semibold text-xl mb-6">

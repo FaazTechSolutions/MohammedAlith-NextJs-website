@@ -40,7 +40,7 @@ const BoardofDirectorsTitle = items.filter(
 
 return(
     <>
-    <ServicesSection  aboutItems={serviceSection} />
+    <ServicesSection  aboutItems={serviceSection} locale={locale} />
     <BoardMembers
         BoardofDirectorsTitle={BoardofDirectorsTitle}
         Chairman={Chairman}

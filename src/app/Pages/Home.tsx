@@ -53,7 +53,7 @@ export default async function Home({ locale }: { locale: 'ar' | 'en' }){
   </div>
 </div>
 
-<ServicesSection  aboutItems={serviceSection}  ></ServicesSection>
+<ServicesSection  aboutItems={serviceSection}  locale={locale}></ServicesSection>
 <Achievements achieve={Achievement}/>
 <Certificates  certificateEn={CertificateEn}
         certificateAr={CertificateAr}

@@ -31,11 +31,11 @@ export default function InvestorTabs({ locale, news, reports, investorContacts}:
   const tabLabels = Object.values(texts);
 
   return (
-    <div className="px-18 py-4 container m-auto">
-      <div dir={isArabic ? "rtl" : "ltr"} className="mt-5 flex ">
+    <div className="px-4 py-4 container m-auto">
+      <div dir={isArabic ? "rtl" : "ltr"} className="mt-5 flex flex-col md:flex-row gap-4">
         {/* Tabs */}
        
-        <ul className={`w-3/6 font-bold ${isArabic ? "text-right" : "text-left"}`}>
+        <ul className={`w-full md:w-3/6 font-bold ${isArabic ? "text-right" : "text-left"}`}>
          <h1 className="text-2xl text-bold">{Title}</h1>
           {tabLabels.map((label, index) => {
             const key = tabKeys[index];
@@ -54,7 +54,7 @@ export default function InvestorTabs({ locale, news, reports, investorContacts}:
         </ul>
 
         {/* Tab content */}
-        <div className="w-4/6">
+        <div className="w-full md:w-4/6">
           
           {activeTab === "news" && <InvestorSection locale={locale} items={news} type="news" />}
           {activeTab === "reports" && <InvestorSection locale={locale} items={reports} type="reports" />}

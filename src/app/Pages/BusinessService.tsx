@@ -11,7 +11,7 @@ export default async function BusinessService({ locale }: { locale: "ar" | "en" 
       console.log(" businessService",  businessService);
     return(
           <div>
-             <ServicesSection  serviceItems={businessService}  />
+             <ServicesSection  serviceItems={businessService} locale={locale} />
              {/* <BaseFooter/> */}
            </div>
     )

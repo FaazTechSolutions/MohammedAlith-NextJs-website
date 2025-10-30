@@ -51,15 +51,16 @@ export interface ServicePageItem {
 export interface CombinedProps {
   aboutItems?: AboutItem[];
   serviceItems?: ServicePageItem[];
+  locale: "en" | "ar";
 
 }
 
 
-export default function ServicesSection({ aboutItems, serviceItems,}: CombinedProps) {
+export default function ServicesSection({ aboutItems, serviceItems, locale}: CombinedProps) {
 
   const dataList = aboutItems ?? serviceItems ?? [];
 
-const locale: "en" | "ar" = "ar";
+// const locale: "en" | "ar" = "ar";
   const sortedList =
     "Order" in (dataList[0] || {})
       ? [...dataList].sort((a: any, b: any) => a.Order - b.Order)

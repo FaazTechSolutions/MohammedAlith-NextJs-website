@@ -65,7 +65,7 @@ function BannerSlide({
   isRtl: boolean;
 }) {
   return (
-    <div className="relative p-1 md:h-4/6 w-full overflow-hidden">
+    <div className="relative p-1 md:h-4/6 w-full overflow-hidden bannerimg-top">
       {banner.Image && (
         <img
           src={banner.Image}
@@ -77,7 +77,7 @@ function BannerSlide({
 
       <div className="container mx-auto">
         <div
-          className={`flex-caption px-18 absolute top-10 font-bold ${
+          className={`banner-text flex-caption px-18 absolute top-10 font-bold ${
             isRtl ? "text-right" : "text-left"
           } flex flex-col gap-4 lg:gap-6`}
         >

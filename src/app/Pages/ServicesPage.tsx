@@ -20,7 +20,7 @@ export default async function Services({ locale }: { locale: 'ar' | 'en' }) {
 
   return (
     <div>
-      <ServicesSection  serviceItems={service1}  />
+      <ServicesSection  serviceItems={service1} locale={locale} />
       {/* <BaseFooter/> */}
     </div>
   );

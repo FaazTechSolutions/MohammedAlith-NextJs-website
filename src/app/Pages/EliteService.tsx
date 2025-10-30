@@ -18,7 +18,7 @@ export default async function EliteService({ locale }: { locale: "ar" | "en" }){
     return(
          <div>
              <Banner banners={EliteBanner} locale={locale} />
-                    <ServicesSection  serviceItems={EliteService}  />
+                    <ServicesSection  serviceItems={EliteService} locale={locale} />
                    
                   </div>
     )

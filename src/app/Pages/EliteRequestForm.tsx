@@ -100,7 +100,7 @@ export default function EliteRequestForm() {
   };
 
   return (
-    <div className="container mt-6 px-2
+    <div className="container mt-6 px-2 mx-auto
     md:px-18 py-20 bg-white" dir={isArabic ? "rtl" : "ltr"}>
       <h4 className="text-center mb-6 text-xl font-bold">ELITE REQUEST FORM</h4>
 

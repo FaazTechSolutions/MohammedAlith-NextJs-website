@@ -64,9 +64,7 @@ export function BoardMembers({
   const displayPerson:any = selectedMember || Chairman;
 
   return (
-    <div className={`container mx-auto grid gap-24 ${
-    selectedMember ? "px-20" : "px-42"
-  }`}>
+    <div className={`bod_list container mx-auto grid gap-24`}>
       {/* Title */}
       <h1 className="text-4xl text-gray-600 font-bold text-center uppercase">
         {BoardofDirectorsTitle?.[0]?.Title}
@@ -74,7 +72,7 @@ export function BoardMembers({
 
       {/* Main (Chairman or selected member) */}
       <div
-        className={`mt-5 flex gap-10 items-start ${
+        className={`bod_list_top mt-5 flex gap-10 items-start flex-col md:flex-row ${
           isArabic ? "text-right " : "text-left"
         }`}
       >
@@ -98,12 +96,12 @@ export function BoardMembers({
           />
         </div>
 
-        <div className="pt-40 max-w-5/12 flex flex-col gap-2">
+        <div className="flex flex-col gap-2">
         {selectedMember&&( <h1 className="text-base font-bold  ">
         {BoardofDirectorsTitle?.[0]?.Title}
       </h1>)}
           <h1 className="text-3xl font-bold">{displayPerson?.Name}</h1>
-          <p className="theme-color text-2xl">
+          <p className="theme-color text-2xl text-wrap">
             <span className="font-medium">{displayPerson?.boardPosition}</span>{" "}
             {text}
           </p>
@@ -112,7 +110,7 @@ export function BoardMembers({
 
       {/* If a member is selected, show their description + back */}
       {selectedMember && (
-        <div className="flex flex-col items-stretch gap-5 relative ">
+        <div className="bod_list_bottom flex flex-col items-stretch gap-5 relative ">
           <p className="text-gray-500 text-lg position">
             {selectedMember.Description}
           </p>
@@ -138,7 +136,7 @@ export function BoardMembers({
               <img
                 src={member.Image}
                 alt={member.Name}
-                className="mx-auto "
+                className=""
               />
               <h1 className="mt-3 text-xl text-gray-600 font-bold">
                 {member.Name}
