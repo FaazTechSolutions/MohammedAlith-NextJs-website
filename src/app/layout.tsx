@@ -1,4 +1,4 @@
-
+import { FaAngleUp } from "react-icons/fa6";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -41,6 +41,13 @@ export default async function RootLayout({ children, params }:any) {
         <NextIntlClientProvider locale={locale} messages={messages}>
           <div dir={isRtl ? "rtl" : "ltr"}></div>
        <main>{children}</main>
+       <a id="totop" href="#top" className="top-visible">
+        <i><FaAngleUp /></i>
+    </a>
+   
+    <a id="chat" className="chat" href="https://wa.me/966920027202" target="_blank">
+        <img src="	https://mawarid.com.sa/assets/images/whatsapp2%20(1).png" alt="whatsapp"/>
+    </a>
         </NextIntlClientProvider>
       </body>
     </html>

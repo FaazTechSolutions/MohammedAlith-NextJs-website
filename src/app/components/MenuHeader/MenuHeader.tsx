@@ -1,6 +1,6 @@
 "use client";
-import Achievements from "../Acievement/Achievements";
-import React from "react";
+
+import React,{useState,useEffect} from "react";
 import Sidenav from "./SideNav";
 import Link from "next/link";
 import { useLocale,  } from "next-intl";
@@ -15,6 +15,31 @@ export default function MenuHeader() {
   const pathname = usePathname() ?? "/";
   const otherLocale = locale === "ar" ? "en" : "ar";
 
+  
+  const [activeSection, setActiveSection] = useState<string>("");
+
+    useEffect(() => {
+    const sections = ["Achievements", "ContactUs"];
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      let current = "";
+      sections.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const offsetTop = el.offsetTop - 150;
+          const offsetBottom = offsetTop + el.offsetHeight;
+          if (scrollY >= offsetTop && scrollY < offsetBottom) {
+            current = id;
+          }
+        }
+      });
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
 
   // compute swap path robustly
@@ -38,8 +63,11 @@ export default function MenuHeader() {
     profile: locale === "ar" ? "الملف التعريفي" : "Profile",
   };
 
+    const isActive = (route: string) =>
+    pathname === route || pathname.startsWith(route + "/");
+
   return (
-    <div className="w-screen bg-white sticky top-0 z-10">
+    <div className="w-screen bg-white sticky top-0 z-100 ">
     <div className="flex sm:flex-shrink-1 px-4 xl:px-6 justify-between items-center py-6  bg-white  w-screen container mx-auto">
       {/* Mobile menu */}
       <div className="pt-3 xl:hidden relative">
@@ -63,28 +91,49 @@ export default function MenuHeader() {
       <div className="hidden xl:block ">
       
         <ul className="flex gap-4 h-full items-center justify-center w-full text-sm font-bold pt-2 ">
-          <li className="hover:text-[#fdbd3f] flex gap-3">
-            {/* internal route - use Link and locale */}
+          <li className={`flex gap-3 ${
+                isActive(`/${locale}/about-mawarid`)
+                  ? "text-[#fdbd3f]"
+                  : "hover:text-[#fdbd3f]"
+              }`}>
             <Link href={`/${locale}/about-mawarid`} locale={locale}>{texts.aboutMawarid}</Link>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
-          <li className="hover:text-[#fdbd3f] flex gap-3">
+          <li className={`flex gap-3 ${
+                isActive(`/${locale}/services`)
+                  ? "text-[#fdbd3f]"
+                  : "hover:text-[#fdbd3f]"
+              }`}>
             <Link href={`/${locale}/services`} locale={locale}>{texts.services}</Link>
             <div className="bg-[#fdbd3f] w-1" />
           </li>
 
-        <li className="hover:text-[rgb(253,189,63)] flex gap-3">
-            <Link href={`/${locale}#Achievements`}>{texts.achievement}</Link>
-            <div className="bg-[#fdbd3f] w-1" />
-          </li>
+         <li
+              className={`flex gap-3 ${
+                activeSection === "Achievements" ? "text-[#fdbd3f]" : "hover:text-[#fdbd3f]"
+              }`}
+            >
+              <Link href={`/${locale}#Achievements`}>{texts.achievement}</Link>
+              <div className="bg-[#fdbd3f] w-1" />
+            </li>
 
-          <li className="hover:text-[#fdbd3f] flex gap-3">
-            <Link href={`/${locale}#ContactUs`}>{texts.contact}</Link>
-            <div className="bg-[#fdbd3f] w-1" />
-          </li>
+            <li
+              className={`flex gap-3 ${
+                activeSection === "ContactUs" ? "text-[#fdbd3f]" : "hover:text-[#fdbd3f]"
+              }`}
+            >
+              <Link href={`/${locale}#ContactUs`}>{texts.contact}</Link>
+              <div className="bg-[#fdbd3f] w-1" />
+            </li>
 
-          <li className="hover:text-[#fdbd3f] flex gap-3">
+             <li
+              className={`flex gap-3 ${
+                isActive(`/${locale}/investor-relation`)
+                  ? "text-[#fdbd3f]"
+                  : "hover:text-[#fdbd3f]"
+              }`}
+            >
             <Link href={`/${locale}/investor-relation`} locale={locale}>{texts.investor}</Link>
           </li>
         </ul>

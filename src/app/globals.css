@@ -1,5 +1,6 @@
-@import url('https://db.onlinewebfonts.com/c/513071b47bdba774c93a73ad16a75e3b?family=DIN+Next+LT+Arabic+Bold');
+/* @import url('https://db.onlinewebfonts.com/c/513071b47bdba774c93a73ad16a75e3b?family=DIN+Next+LT+Arabic+Bold'); */
 @import "tailwindcss";
+
 
 
 
@@ -27,10 +28,56 @@
   }
 }
 
+@font-face {
+	font-family: "DINNextLTArabic-Black";
+	src: url("/assests/fonts/DINNextLTArabic-Black.ttf");
+	font-weight: normal;
+	font-style: normal;
+ }
+@font-face {
+	font-family: "DINNextLTArabic-Bold";
+	src: url("/assests/fonts/DINNextLTArabic-Bold.ttf");
+	font-weight: normal;
+	font-style: normal;
+ }
+@font-face {
+	font-family: "DINNextLTArabic-Heavy";
+	src: url("/assests/fonts/DINNextLTArabic-Heavy.ttf");
+	font-weight: normal;
+	font-style: normal;
+ }
+@font-face {
+	font-family: "DINNextLTArabic-Light";
+	src: url("/assests/fonts/DINNextLTArabic-Light.ttf");
+	font-weight: normal;
+	font-style: normal;
+ }
+@font-face {
+	font-family: "DINNextLTArabic-Medium";
+	src: url("/assests/fonts/DINNextLTArabic-Medium.ttf");
+	font-weight: normal;
+	font-style: normal;
+ }
+@font-face {
+	font-family: "DINNextLTArabic-Regular";
+	src: url("/assests/fonts/DINNextLTArabic-Regular.ttf");
+	font-weight: normal;
+	font-style: normal;
+ }
+@font-face {
+	font-family: "DINNextLTArabic-UltraLight";
+	src: url("/assests/fonts/DINNextLTArabic-UltraLight.ttf");
+	font-weight: normal;
+	font-style: normal;
+ }
+
+
+
+
 body {
       overflow-x: hidden;   
   /* font-family:  Arial, Helvetica, sans-serif; */
-   font-family: "DIN Next LT Arabic", sans-serif;
+   font-family: "DINNextLTArabic-Black", sans-serif;
   
 
  
@@ -44,8 +91,13 @@ body {
     color: #fdbd3f
 }
 
-  .font-bold {
+
+/* .head{
   font-family: "DIN Next LT Arabic Bold", sans-serif;
+} */
+
+  .font-bold {
+  font-family: "DINNextLTArabic-Bold", sans-serif;
   
 }
 
@@ -54,10 +106,12 @@ body {
   
 }
 
-
-.login li{
+.login ul{
   font-family: 'DINNextLTArabic-Medium';
 }
+
+
+
 .position{
     font-family: 'DINNextLTArabic-Regular'
 };
@@ -78,23 +132,41 @@ body {
     max-width: 100%;
     text-align: center;
   }
-
-  .counter-box{
+ .counter-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.counter-box{
     background-color: #ececec;
     margin-top: 70px;
     display: block;
-  }
+}
+.counter-box .heading{
+    text-align: center;
+}
+.counter {
+    text-align: center;
+}
+.counter h3 {
+    padding: 0.5rem 0;
+     font-size: 2.5rem; 
+    font-weight: 800;
+}
 
-  .counter-container{
-    display: flex
-;
-    justify-content: space-around;
-    align-items: center
-  }
+.counter h6 {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
 
-  .counter {
-       text-align: center;
-  }
+.achieve .slick-dots li button:before {
+  top: 138px !important;
+    /* right: 111px ; */
+}
+.achieve .slick-dots li {
+      right: 130% !important;
+}
+
   .certificates{
     display: flex;
     justify-content: space-between;
@@ -380,6 +452,9 @@ button {
 }
 
 
+
+
+
 @media (max-width:768px) {
   .serviceboxes{
     flex-wrap: wrap;
@@ -424,4 +499,53 @@ button {
     .container, .container-lg, .container-md, .container-sm, .container-xl {
         max-width: 1140px;
     }
+
+
+.counter h3 {
+    
+     font-size: 4.5rem; 
+    
+}
+}
+.chat {
+  position: fixed;
+  bottom: 5px;
+  inset-inline-end: 2rem;
+  z-index: 1025;
+  border-radius: 50%;
+  background-color: #25d366;
+  width: 40px;
+  height: 40px;
+}
+.chat img {
+  padding: 8px;
+}
+
+#totop{
+  font-weight: 900;
+  color: #fff;
+  display: none;
+  position: fixed;
+  right: 34px;
+  bottom: 60px;
+  z-index: 999;
+  height: 0;
+  width: 0;
+  font-size: 0;
+  text-align: center;
+  padding-top: 3px;
+  line-height: 34px;
+  border-radius: 6px;
+  transition: .3s ease-in-out;
+}
+#totop.top-visible{
+  background-color: #267139;
+  height: 40px;
+  width: 40px;
+  font-size: 25px;
+  display: inline;
+}
+
+@keyframes jump {
+0% { bottom: 20px; } 50% { bottom: 40px; } 100% { bottom: 20px; }
 }

@@ -16,7 +16,7 @@ export default function Login() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative login">
       <div
         onClick={() => setOpen(!open)}
         className="flex gap-2 text-white transition z-0 items-center"
@@ -27,7 +27,7 @@ export default function Login() {
 
       {open && (
         <div
-          className={`absolute top-full mt-1 w-48 rounded-md shadow-lg z-20 bg-white ${
+          className={`absolute top-full mt-1 w-48 rounded-md shadow-lg z-110 bg-white ${
             locale === "ar" ? "left-0" : "right-0"
           }`}
         >
