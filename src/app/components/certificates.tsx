@@ -20,7 +20,7 @@ export default function Certificates({ certificateEn, certificateAr, locale }: C
   const headingText = locale === "ar" ? "شهادات الأيزو" : "ISO CERTIFICATES";
 
   return (
-    <section className="container mx-auto mt-3  px-18 py-20">
+    <section className="container mx-auto mt-3  px-4">
   {/* Heading */}
   <h3 className="mb-5 text-[#53585b] text-2xl font-semibold">
     {headingText}

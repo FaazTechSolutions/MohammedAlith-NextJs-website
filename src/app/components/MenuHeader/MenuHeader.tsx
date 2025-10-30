@@ -40,7 +40,7 @@ export default function MenuHeader() {
 
   return (
     <div className="w-screen bg-white sticky top-0 z-10">
-    <div className="flex sm:flex-shrink-1 px-4 xl:px-18 justify-between items-center py-6  bg-white  w-screen container mx-auto">
+    <div className="flex sm:flex-shrink-1 px-4 xl:px-6 justify-between items-center py-6  bg-white  w-screen container mx-auto">
       {/* Mobile menu */}
       <div className="pt-3 xl:hidden relative">
         <Sidenav />

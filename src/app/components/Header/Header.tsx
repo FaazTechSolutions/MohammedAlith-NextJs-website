@@ -4,7 +4,8 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { AiFillYoutube } from "react-icons/ai";
 export default function Header(){
   return(
-  <div className="flex justify-between bg-[#54585b]  md:px-18 py-5 flex-shrink-1 w-screen">
+  <div className="header  bg-[#54585b]  md:px-18 py-5 flex-shrink-1 w-screen">
+    <div className="container mx-auto flex justify-between">
     <div className="flex gap-5 text-white pt-1 ">
       <Link href='https://x.com/MawaridManpower' target="_blank">
       <img src="https://mawarid.com.sa/assets/images/twittericon.png"
@@ -27,6 +28,7 @@ export default function Header(){
     </div>
     <div>
       <Login/>
+    </div>
     </div>
   </div>
   )
