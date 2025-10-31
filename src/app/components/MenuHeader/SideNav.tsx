@@ -13,14 +13,14 @@ export default function MenuHeaderButtons() {
 
   const links = {
     ar: [
-      { text: "عن الموارد", href: `/${locale}about-mawarid` },
+      { text: "عن الموارد", href: `/${locale}/about-mawarid` },
       { text: "الخدمات", href: `/${locale}/services` }, 
       { text: "الإنجازات", href: `/${locale}#Achievements` },
       { text: "تواصل معنا", href: `/${locale}#ContactUs` }, 
       { text: "علاقات المستثمرين", href: `/${locale}/investor-relation` }, 
     ],
     en: [
-      { text: "ABOUT ALMAWARID", href: `/${locale}about-mawarid` },
+      { text: "ABOUT ALMAWARID", href: `/${locale}/about-mawarid` },
       { text: "SERVICES", href: `/${locale}/services` }, 
       { text: "ACHIEVEMENTS", href: `/${locale}#Achievements` },
       { text: "CONTACT US", href: `/${locale}#ContactUs` }, 
