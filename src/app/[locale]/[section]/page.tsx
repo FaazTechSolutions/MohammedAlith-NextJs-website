@@ -16,10 +16,10 @@ export function generateStaticParams() {
     "about-mawarid",
     "services",
     "investor-relation",
-    "business-service.html",
-    "elite-service.html",
-    "business-request-form.html",
-    "elite-request-form.html"
+    "business-service",
+    "elite-service",
+    "business-request-form",
+    "elite-request-form"
   ];
 
   const params: { locale: string; section: string }[] = [];
@@ -57,20 +57,24 @@ export default async function SectionPage({
       Component = <InvestorRelationPage locale={locale as "ar" | "en"} />;
       break;
 
+    case "business-service":
     case "business-service.html":
       Component = <BusinessService locale={locale as "ar" | "en"} />;
       break;
 
+    case "elite-service":
     case "elite-service.html":
       Component = <EliteService locale={locale as "ar" | "en"} />;
       break;
 
+    case "business-request-form":
     case "business-request-form.html":
       Component = <BusinessRequestForm  />;
       break;
 
 
         
+            case "elite-request-form":
             case "elite-request-form.html":
       Component = <EliteRequestForm />;
       break;

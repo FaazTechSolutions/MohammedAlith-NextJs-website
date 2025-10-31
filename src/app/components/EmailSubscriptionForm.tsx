@@ -99,7 +99,7 @@ const texts = {
           </p>
 
           {/* ✅ Checkboxes */}
-          <div className="space-y-2 mb-6">
+          <div className="space-y-2 mb-6 px-4">
             {[
               `${texts.checkbox1}`,
                `${texts.checkbox2}`,

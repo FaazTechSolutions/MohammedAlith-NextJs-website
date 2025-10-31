@@ -62,7 +62,7 @@ export default function InvestorSection({ locale, items = [], type = "news" }: P
   <div key={idx} className="mt-4">
     <p className="mb-4 text-lg">{contact.Question}</p>
   <div className={`h-[6px] transition-all theme-bgcolor ` }></div>
-    <h3 className="font-bold theme-color mt-4">{contact.Title}</h3>
+    <h6 className="font-bold theme-color mt-4"><b>{contact.Title}</b></h6>
     {contact.Address}
     <p>Phone: {contact.PhoneNo}</p>
     <a href="mailto:ir@mawarid.com.sa" className="theme-color">Email: {contact.Email}</a>
@@ -111,7 +111,7 @@ export default function InvestorSection({ locale, items = [], type = "news" }: P
 
         return (
           <div key={idx} className="border-b pb-2">
-            <h3 className="font-semibold pb-2">{item.Title}</h3>
+            <h6 className=" pb-2"><b>{item.Title}</b></h6>
             <p className="text-sm theme-color ">{item.NewsDate && formatDate(item.NewsDate)}</p>
             <p className="mt-1">{item.Description}</p>
             {actionText && actionValue && (

@@ -32,11 +32,12 @@ export default function InvestorTabs({ locale, news, reports, investorContacts}:
 
   return (
     <div className="px-4 py-4 container m-auto">
+      <h1 className="text-2xl text-bold">{Title}</h1>
       <div dir={isArabic ? "rtl" : "ltr"} className="mt-5 flex flex-col md:flex-row gap-4">
         {/* Tabs */}
        
-        <ul className={`w-full md:w-3/6 font-bold ${isArabic ? "text-right" : "text-left"}`}>
-         <h1 className="text-2xl text-bold">{Title}</h1>
+        <ul className={`w-full md:w-3/6 ${isArabic ? "text-right" : "text-left"}`}>
+         
           {tabLabels.map((label, index) => {
             const key = tabKeys[index];
             const isActive = activeTab === key;
