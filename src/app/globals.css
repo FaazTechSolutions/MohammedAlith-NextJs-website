@@ -30,43 +30,43 @@
 
 @font-face {
 	font-family: "DINNextLTArabic-Black";
-	src: url("/fonts/DINNextLTArabic-Black.ttf");
+	src: url("/assests/fonts/DINNextLTArabic-Black.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Bold";
-	src: url("/fonts/DINNextLTArabic-Bold.ttf");
+	src: url("/assests/fonts/DINNextLTArabic-Bold.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Heavy";
-	src: url("/fonts/DINNextLTArabic-Heavy.ttf");
+	src: url("/assests/fonts/DINNextLTArabic-Heavy.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Light";
-	src: url("/fonts/DINNextLTArabic-Light.ttf");
+	src: url("/assests/fonts/DINNextLTArabic-Light.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Medium";
-	src: url("/fonts/DINNextLTArabic-Medium.ttf");
+	src: url("/assests/fonts/DINNextLTArabic-Medium.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Regular";
-	src: url("/fonts/DINNextLTArabic-Regular.ttf");
+	src: url("/assests/fonts/DINNextLTArabic-Regular.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-UltraLight";
-	src: url("/fonts/DINNextLTArabic-UltraLight.ttf");
+	src: url("/assests/fonts/DINNextLTArabic-UltraLight.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
