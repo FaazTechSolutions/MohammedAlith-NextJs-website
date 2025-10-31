@@ -98,7 +98,7 @@ export default function MenuHeader() {
       {/* Desktop Menu */}
       <div className="hidden xl:block ">
       
-        <ul className="flex gap-4 h-full items-center justify-center w-full text-sm font-bold pt-2 ">
+        <ul className="flex gap-4 h-full items-center justify-center w-full pt-2 ">
           <li className={`flex gap-3 ${
                 isActive(`/${locale}/about-mawarid`)
                   ? "text-[#fdbd3f]"

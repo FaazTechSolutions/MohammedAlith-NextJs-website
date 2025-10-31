@@ -30,43 +30,43 @@
 
 @font-face {
 	font-family: "DINNextLTArabic-Black";
-	src: url("/assests/fonts/DINNextLTArabic-Black.ttf");
+	src: url("/fonts/DINNextLTArabic-Black.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Bold";
-	src: url("/assests/fonts/DINNextLTArabic-Bold.ttf");
+	src: url("/fonts/DINNextLTArabic-Bold.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Heavy";
-	src: url("/assests/fonts/DINNextLTArabic-Heavy.ttf");
+	src: url("/fonts/DINNextLTArabic-Heavy.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Light";
-	src: url("/assests/fonts/DINNextLTArabic-Light.ttf");
+	src: url("/fonts/DINNextLTArabic-Light.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Medium";
-	src: url("/assests/fonts/DINNextLTArabic-Medium.ttf");
+	src: url("/fonts/DINNextLTArabic-Medium.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-Regular";
-	src: url("/assests/fonts/DINNextLTArabic-Regular.ttf");
+	src: url("/fonts/DINNextLTArabic-Regular.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
 @font-face {
 	font-family: "DINNextLTArabic-UltraLight";
-	src: url("/assests/fonts/DINNextLTArabic-UltraLight.ttf");
+	src: url("/fonts/DINNextLTArabic-UltraLight.ttf");
 	font-weight: normal;
 	font-style: normal;
  }
@@ -106,7 +106,7 @@ h1,h2,h3,h4 {
   
 } */
 
-.login ul{
+ul{
   font-family: 'DINNextLTArabic-Medium';
 }
 
@@ -152,6 +152,7 @@ h1,h2,h3,h4 {
     padding: 0.5rem 0;
      font-size: 2.5rem; 
     font-weight: 800;
+    color: #212529;
 }
 
 .counter h6 {
@@ -614,4 +615,32 @@ button {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+.about_mawarid .about_section h3 {
+    color: #54585b;
+    font-size: 34px;
+    font-family: 'DINNextLTArabic-Bold';
+    margin-bottom: 20px;
+}
+.about_mawarid .about_section p {
+    color: #9a9897;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-family: 'DINNextLTArabic-Medium';
+}
+/* .py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+} */
+.bod_list h1 {
+    color: #54585b;
+    font-family: 'DINNextLTArabic-Bold';
+}
+.about_mawarid h1, .about_mawarid h2, .about_mawarid h5, .about_mawarid h6 {
+    color: #54585b;
+    font-family: 'DINNextLTArabic-Bold';
+}
+ul.list-disc {
+    padding: 0 40px;
 }

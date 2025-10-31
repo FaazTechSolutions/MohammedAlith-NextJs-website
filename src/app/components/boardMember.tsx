@@ -64,9 +64,9 @@ export function BoardMembers({
   const displayPerson:any = selectedMember || Chairman;
 
   return (
-    <div className={`bod_list container mx-auto grid gap-24`}>
+    <div className={`bod_list container mx-auto grid gap-5 mt-5`}>
       {/* Title */}
-      <h1 className="text-4xl text-gray-600 font-bold text-center uppercase">
+      <h1 className="text-4xl  text-center uppercase">
         {BoardofDirectorsTitle?.[0]?.Title}
       </h1>
 
@@ -97,10 +97,10 @@ export function BoardMembers({
         </div>
 
         <div className="flex flex-col gap-2">
-        {selectedMember&&( <h1 className="text-base font-bold  ">
+        {selectedMember&&( <h1 className="text-base   ">
         {BoardofDirectorsTitle?.[0]?.Title}
       </h1>)}
-          <h1 className="text-3xl font-bold">{displayPerson?.Name}</h1>
+          <h1 className="text-3xl ">{displayPerson?.Name}</h1>
           <p className="theme-color text-2xl text-wrap">
             <span className="font-medium">{displayPerson?.boardPosition}</span>{" "}
             {text}
@@ -126,7 +126,7 @@ export function BoardMembers({
 
       {/* Grid of board members (only when no member is selected) */}
       {!selectedMember && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 ">
           {sortedMembers.map((member) => (
             <div
               key={member.order ?? member.Name}
@@ -138,7 +138,7 @@ export function BoardMembers({
                 alt={member.Name}
                 className=""
               />
-              <h1 className="mt-3 text-xl text-gray-600 font-bold">
+              <h1 className=" text-xl text-gray-600 ">
                 {member.Name}
               </h1>
               <p className="theme-color font-semibold text-lg">

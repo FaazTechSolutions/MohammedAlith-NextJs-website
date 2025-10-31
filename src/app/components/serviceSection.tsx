@@ -137,9 +137,9 @@ if (
                 )} */}
 
                
-                <div className="w-full md:w-1/2 lg:w-1/2">
+                <div className="w-full md:w-1/2 lg:w-1/2 about_section">
                   {x.Header && (
-                    <h3 className="text-4xl font-Header  font-bold mb-2">{x.Header}</h3>
+                    <h3 className="text-4xl font-Header mb-2">{x.Header}</h3>
                   )}
                   { x.Header && (
   <h3
@@ -167,9 +167,9 @@ if (
 
                 
                   {(x.stepsHeader || Object.keys(parsedSteps).length > 0) && (
-  <div className="mt-12 ps-12">
+  <div className="mt-12">
     {x.stepsHeader && (
-      <h5 className="font-bold text-2xl">{x.stepsHeader}</h5>
+      <h4 className="text-2xl">{x.stepsHeader}</h4>
     )}
     {x.stepsDescription && (
       <p className="text-gray-700">{x.stepsDescription}</p>
@@ -180,7 +180,7 @@ if (
   <ul className="list-disc ml-8 mt-2">
     {Object.entries(parsedSteps).map(([label, value], i) => (
       <li key={i}>
-        <strong>{label}:</strong> {value ?? ""}
+        <span>{label}</span> <span className="theme-color"> {value ?? ""}</span>
       </li>
     ))}
   </ul>

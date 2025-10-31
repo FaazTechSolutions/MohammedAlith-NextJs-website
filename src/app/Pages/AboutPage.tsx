@@ -40,6 +40,7 @@ const BoardofDirectorsTitle = items.filter(
 
 return(
     <>
+    <div className="about_mawarid">
     <ServicesSection  aboutItems={serviceSection} locale={locale} />
     <BoardMembers
         BoardofDirectorsTitle={BoardofDirectorsTitle}
@@ -47,6 +48,7 @@ return(
         BoardofDirectors={BoardofDirectors}
      
       />
+      </div>
       {/* <BaseFooter/> */}
     </>
 

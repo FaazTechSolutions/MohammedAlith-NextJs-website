@@ -80,7 +80,7 @@ function AchievementItem({ item }: { item: AchieveItem }) {
           )}
 
           {item.Currencycode && (
-            <p className="inline-block text-xl font-normal text-gray-600 ml-1 relative top-1">
+            <p className="inline-block text-xl font-normal text-black-600 ml-1 relative top-1">
               {item.Currencycode}
             </p>
           )}
