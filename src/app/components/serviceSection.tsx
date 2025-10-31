@@ -81,9 +81,9 @@ export default function ServicesSection({ aboutItems, serviceItems, locale}: Com
 
         const actionText = parsedAction ? Object.keys(parsedAction)[0] : null;
         let actionValue = parsedAction ? Object.values(parsedAction)[0] : null;
-       
-        actionValue = actionValue!.replace(".html", "");
-         
+      if (actionValue?.includes(".html")) {
+  actionValue = actionValue.replace(".html", "");
+}
         let finalActionValue = actionValue;
       
 if (
